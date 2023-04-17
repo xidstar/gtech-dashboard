@@ -92,7 +92,7 @@ const Navbar = () => {
                       className='rounded-full w-8 h-8 min-w-[32px]'
                       src={avatar} />
                     <p>
-                      <span className='text-gray-600 ml-1 text-14 dark:text-[#999] hidden md:block'>ITST</span>
+                      <span className='text-gray-600 ml-1 text-14 dark:text-[#999] hidden md:block'>ITSTS</span>
                     </p>
               </div>
           </TooltipComponent>
