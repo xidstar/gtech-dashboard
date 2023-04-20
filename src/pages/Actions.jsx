@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Sort, ContextMenu, Filter, Page, ExcelExport, PdfExport, Edit, Inject } from '@syncfusion/ej2-react-grids';
 import { actionsData, contextMenuItems, actionsGrid } from '../data/dummy';
 import { Header } from '../components';
@@ -23,7 +23,7 @@ const Actions = () => {
     //     <Inject services={[Resize, Sort, Filter, ContextMenu, Page, ExcelExport, Edit, PdfExport]} />
     //   </GridComponent>
     // </div>
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
+    <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg'>
       <Header category="Page" title="Actions" />
       <GridComponent 
         id="gridcomp"

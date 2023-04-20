@@ -1,7 +1,7 @@
 import React from 'react';
 import {GoPrimitiveDot} from 'react-icons/go'
-import {Stacked, Pie, Button, SparkLine} from '../components';
-import { earningData, SparklineAreaData, ecom } from '../data/dummy';
+import {Stacked, Pie, Button} from '../components';
+import { earningData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import Background from '../data/hero.jpg'
 import { KanbanComponent, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-kanban';
@@ -59,7 +59,7 @@ const Highlights = () => {
 
         {/* Kanban */}
 
-        <div className='mt-24 p-2 md:p-10 bg-white rounded-3xl hidden lg:block dark:text-gray-200 dark:bg-secondary-dark-bg'> 
+        <div className='mt-12 p-2 md:p-10 bg-white rounded-3xl hidden lg:block dark:text-gray-200 dark:bg-secondary-dark-bg'> 
           <KanbanComponent
             id='kanban'
             dataSource={highlightsData}
@@ -107,8 +107,8 @@ const Highlights = () => {
 
       {/* Alerts */}
 
-      <div className='flex gap-10 frex-wrap justify-center'>
-          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
+      <div className='flex gap-10 frex-wrap justify-center mt-12 mb-12'>
+          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-full">
             <div className='flex justify-between'>
               <p className='font-semibold text-xl'>Alerts</p>
               <div className='flex items-center gap-4'>
@@ -143,21 +143,10 @@ const Highlights = () => {
                   </p>
                 </div>
 
-                <div className="mt-5">
-                  {/* <SparkLine 
-                    currentClor="blue"
-                    id="line-sparkline"
-                    type="Line"
-                    height="80px"
-                    width="250px"
-                    data={SparklineAreaData}
-                    color="blue"
-                  /> */}
-                </div>
                 <div className='mt-10'>
                   <Button 
                     color="white"
-                    bgColor={currentColor}
+                    bgColor={currentColor} 
                     text="Download Report"
                     borderRadius="10px"
                   />
