@@ -7,7 +7,8 @@ import { pdfExport } from '@syncfusion/ej2/pivotview';
 
 const Employees = () => {
   return (
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
+    <div className='mt-32 md:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
+    w-11/12 mr-auto ml-auto'>
       <Header category="Page" title="Employees" />
       <GridComponent 
         dataSource={employeesData}

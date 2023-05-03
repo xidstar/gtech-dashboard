@@ -23,7 +23,8 @@ const Actions = () => {
     //     <Inject services={[Resize, Sort, Filter, ContextMenu, Page, ExcelExport, Edit, PdfExport]} />
     //   </GridComponent>
     // </div>
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg'>
+    <div className='mt-32 md:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
+     w-11/12 mr-auto ml-auto'>
       <Header category="Page" title="Actions" />
       <GridComponent 
         id="gridcomp"
@@ -31,7 +32,7 @@ const Actions = () => {
         allowPaging
         allowSorting
       >
-        <ColumnsDirective>
+        <ColumnsDirective  style={{display: "flex"}}>
           {actionsGrid.map((item, index) => (
             <ColumnDirective key={index} {...item} />
           ))}

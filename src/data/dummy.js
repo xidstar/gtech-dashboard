@@ -1,10 +1,11 @@
 import React from 'react';
-import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
-import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
+import { AiOutlineCalendar, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
+import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiUser } from 'react-icons/fi';
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
-import { IoMdContacts } from 'react-icons/io';
-import { RiContactsLine, RiStockLine, RiEarthFill } from 'react-icons/ri';
+import { HiOutlineUsers } from 'react-icons/hi';
+import { GrTransaction } from 'react-icons/gr';
+import { RiContactsLine,  RiEarthFill } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
@@ -23,15 +24,29 @@ import product6 from './product6.jpg';
 import product7 from './product7.jpg';
 import product8 from './product8.jpg';
 
-export const gridOrderImage = (props) => (
-  <div>
-    <img
-      className="rounded-full h-20 md:ml-3 max-w-14"
-      src={props.ProductImage}
-      alt="order-item"
-    />
-  </div>
-);
+export const gridOrderImage = (props) => {
+  
+  let unshuffled = props.ProductImage;
+  let shuffled = unshuffled
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+
+  return (
+    <div className='!flex justify-center'>
+      { 
+      
+        shuffled.map((item, index) => { 
+        return (
+          <img
+            key={index}
+            className="rounded-full h-14 md:ml-3 max-w-8"
+            src={item.image}
+            alt="approver"
+          />
+        )})}
+    </div>
+  )};
 
 export const gridOrderStatus = (props) => (
   <button
@@ -242,19 +257,19 @@ export const areaCustomSeries = [
 
 export const barChartData = [
   [
-    { x: 'USA', y: 46 },
-    { x: 'GBR', y: 27 },
-    { x: 'CHN', y: 26 },
+    { x: '2023', y: 46 },
+    { x: '2022', y: 27 },
+    { x: '2021', y: 26 },
   ],
   [
-    { x: 'USA', y: 37 },
-    { x: 'GBR', y: 23 },
-    { x: 'CHN', y: 18 },
+    { x: '2023', y: 37 },
+    { x: '2022', y: 23 },
+    { x: '2021', y: 18 },
   ],
   [
-    { x: 'USA', y: 38 },
-    { x: 'GBR', y: 17 },
-    { x: 'CHN', y: 26 },
+    { x: '2023', y: 38 },
+    { x: '2022', y: 17 },
+    { x: '2021', y: 26 },
   ],
 ];
 
@@ -263,7 +278,7 @@ export const barCustomSeries = [
     dataSource: barChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Gold',
+    name: 'Executive Team',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -277,7 +292,7 @@ export const barCustomSeries = [
     dataSource: barChartData[1],
     xName: 'x',
     yName: 'y',
-    name: 'Silver',
+    name: 'HR',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -291,7 +306,7 @@ export const barCustomSeries = [
     dataSource: barChartData[2],
     xName: 'x',
     yName: 'y',
-    name: 'Bronze',
+    name: 'Project Management',
     type: 'Column',
     marker: {
       dataLabel: {
@@ -489,15 +504,19 @@ export const links = [
     links: [
       {
         name: 'actions',
-        icon: <AiOutlineShoppingCart />,
+        icon: <GrTransaction />,
       },
       {
         name: 'employees',
-        icon: <IoMdContacts />,
+        icon: <HiOutlineUsers />,
       },
       {
         name: 'users',
         icon: <RiContactsLine />,
+      },
+      {
+        name: 'user-profile',
+        icon: <FiUser />,
       },
     ],
   },
@@ -895,20 +914,20 @@ export const actionsGrid = [
   {
     field: 'Title',
     headerText: 'Title',
-    width: '300',
+    width: '200',
     editType: 'dropdownedit',
     textAlign: 'Left',
   },
   { field: 'ActionID',
     headerText: 'Action ID',
-    width: '150',
+    width: '100',
     textAlign: 'Center',
   },
   {
     headerText: 'Approvers',
     template: gridOrderImage,
     textAlign: 'Center',
-    width: '150',
+    width: '300',
   },
   {
     headerText: 'Status',
@@ -2221,26 +2240,26 @@ export const actionsData = [
     Location: 'Washington, D.C',
     Status: 'pending',
     StatusBg: '#FB9678',
-    ProductImage:
-      avatar,
-    // ProductImage: [
-    //   {
-    //     image:
-    //       avatar2,
-    //   },
-    //   {
-    //     image:
-    //       avatar3,
-    //   },
-    //   {
-    //     image:
-    //       avatar2,
-    //   },
-    //   {
-    //     image:
-    //       avatar4,
-    //   },
-    // ]
+    // ProductImage:
+      // avatar,
+    ProductImage: [
+      {
+        image:
+          avatar2,
+      },
+      {
+        image:
+          avatar3,
+      },
+      {
+        image:
+          avatar2,
+      },
+      {
+        image:
+          avatar4,
+      },
+    ]
   },
   {
     Title: 'McAfee April 2023 Patch',
@@ -2248,8 +2267,26 @@ export const actionsData = [
     Location: 'New York',
     Status: 'complete',
     StatusBg: '#8BE78B',
-    ProductImage:
-      avatar2,
+    // ProductImage:
+    //   avatar2,
+    ProductImage: [
+      {
+        image:
+          avatar2,
+      },
+      {
+        image:
+          avatar3,
+      },
+      {
+        image:
+          avatar2,
+      },
+      {
+        image:
+          avatar4,
+      },
+    ]
   },
   {
     Title: 'Oracle March 2022 Patch',
@@ -2257,8 +2294,26 @@ export const actionsData = [
     Location: 'Chicago',
     Status: 'active',
     StatusBg: '#03C9D7',
-    ProductImage:
-      avatar3,
+    // ProductImage:
+    //   avatar3,
+    ProductImage: [
+      {
+        image:
+          avatar2,
+      },
+      {
+        image:
+          avatar3,
+      },
+      {
+        image:
+          avatar2,
+      },
+      {
+        image:
+          avatar4,
+      },
+    ]
   },
   {
     Title: 'Deploy Firewall',
@@ -2266,8 +2321,26 @@ export const actionsData = [
     Location: 'Austin',
     Status: 'canceled',
     StatusBg: '#FF5C8E',
-    ProductImage: 
-      avatar4,
+    // ProductImage: 
+    //   avatar4,
+    ProductImage: [
+      {
+        image:
+          avatar2,
+      },
+      {
+        image:
+          avatar3,
+      },
+      {
+        image:
+          avatar2,
+      },
+      {
+        image:
+          avatar4,
+      },
+    ]
   },
   {
     Title: 'Import Python Flask',
@@ -2275,8 +2348,26 @@ export const actionsData = [
     Location: 'Austin',
     Status: 'rejected',
     StatusBg: 'red',
-    ProductImage:
-      avatar,
+    // ProductImage:
+    //   avatar,
+    ProductImage: [
+      {
+        image:
+          avatar2,
+      },
+      {
+        image:
+          avatar3,
+      },
+      {
+        image:
+          avatar2,
+      },
+      {
+        image:
+          avatar4,
+      },
+    ]
   },
 ]
 
@@ -3278,13 +3369,13 @@ export const lineCustomSeries = [
 ];
 
 export const pieChartData = [
-  { x: 'Labour', y: 18, text: '18%' },
-  { x: 'Legal', y: 8, text: '8%' },
-  { x: 'Production', y: 15, text: '15%' },
-  { x: 'License', y: 11, text: '11%' },
-  { x: 'Facilities', y: 18, text: '18%' },
-  { x: 'Taxes', y: 14, text: '14%' },
-  { x: 'Insurance', y: 16, text: '16%' },
+  { x: 'Keyword', y: 18, text: '18%' },
+  { x: 'Financial', y: 8, text: '8%' },
+  { x: 'Productivity', y: 15, text: '15%' },
+  { x: 'Criminal', y: 11, text: '11%' },
+  { x: 'System', y: 18, text: '18%' },
+  { x: 'Access', y: 14, text: '14%' },
+  { x: 'Training', y: 16, text: '16%' },
 ];
 
 export const contextMenuItems = [
@@ -6160,3 +6251,18 @@ export const PyramidData = [
   { x: 'Fruits', y: 520, text: '520 cal' },
   { x: 'Bread, Rice, Pasta', y: 930, text: '930 cal' },
 ];
+
+
+export let world_map = {
+  "type": "Feature",
+  "properties": {
+      "admin": "Afghanistan",
+      "name": "Afghanistan",
+      "continent": "Asia"
+  },
+  "geometry": { 
+    "type": "Polygon", 
+    "coordinates": [[[61.21081709172573, "https://ej2.syncfusion.com/react/documentation"]]] 
+  }
+
+}

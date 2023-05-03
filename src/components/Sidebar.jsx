@@ -52,15 +52,20 @@ const Sidebar = () => {
                 <p className='text-gray-400 m-3 mt-4 uppercase'>
                   {item.title}
                 </p>
-                <div className='w-100 divide-y dark:text-gray-600 '>
+                <div className='nav-link w-100 dark:text-gray-300 '>
                   {item.links.map((link) => (
+                    <>
                     <NavLink to={`/${link.name}`} key={link.name} 
                       onClick={handleCloseSidebar}
                       style={({isActive}) => ({ color: isActive ? currentColor : ''})}
-                      className={`flex items-center text-[16px] w-100 hover:bg-light-gray ${({isActive}) => isActive ? activeLink : normalLink}`}>
+                      className={`flex items-center text-[16px] w-100 dark:hover:text-gray-600 hover:bg-light-gray ${({isActive}) => isActive ? activeLink : normalLink}`}>
                        <span className=' ml-5'>{link.icon}</span>
                        <span className='capitalize m-3'>{link.name}</span> 
+                       <span className='underline'></span>
                     </NavLink>
+                    
+                    {/* <span className='underline'></span> */}
+                    </>
                   ))}
                 </div>
               </div>

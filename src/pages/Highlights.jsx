@@ -13,7 +13,7 @@ const Highlights = () => {
   const highlightCards = (props) => {
     return (
       <div className='flex mt-3 mb-3 flex-wrap justify-around items-center'>
-          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg w-full md:w-fit
+          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg w-full text-center
               p-4 pt-9 mb-2 rounded-2xl md:m-2 hover:cursor-pointer">
               <button type="button" style={{color: props.iconColor, backgroundColor: props.iconBg}}
               className='text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl'>
@@ -39,7 +39,7 @@ const Highlights = () => {
   }
 
   return (
-    <div className='mt-20 md:mt-12 w-4/5 mr-auto ml-auto lg:max-w-screen-xl'>
+    <div className='mt-20 md:mt-12 w-4/5 mr-auto ml-auto lg:max-w-screen-2xl'>
       <div className='flex flex-wrap flex-col lg:flex-nowrap justify-center m-3'>
 
         {/* Hero */}
@@ -59,7 +59,7 @@ const Highlights = () => {
 
         {/* Kanban */}
 
-        <div className='mt-12 p-2 md:p-10 bg-white rounded-3xl hidden lg:block dark:text-gray-200 dark:bg-secondary-dark-bg'> 
+        <div className='mt-12 p-2 md:p-10 bg-white rounded-3xl hidden lg:block dark:text-gray-200 dark:bg-slate-600'> 
           <KanbanComponent
             id='kanban'
             dataSource={highlightsData}
@@ -79,8 +79,8 @@ const Highlights = () => {
 
         <div className='flex mt-3 mb-3 flex-wrap justify-around items-center lg:hidden'>
           {earningData.map((item) => (
-            <div key={item.title} className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg w-full md:w-fit
-              p-4 pt-9 mb-2 rounded-2xl lg:w-1/5 min-w-[30%] md:m-2 hover:drop-shadow-xl hover:cursor-pointer">
+            <div key={item.title} className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg
+              p-4 pt-9 mb-2 rounded-2xl lg:w-1/5 min-w-[30%] md:m-2 hover:drop-shadow-xl hover:cursor-pointer hover:scale-110">
               <button type="button" style={{color: item.iconColor, backgroundColor: item.iconBg}}
               className='text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl'>
                 {item.icon}
@@ -108,7 +108,7 @@ const Highlights = () => {
       {/* Alerts */}
 
       <div className='flex gap-10 frex-wrap justify-center mt-12 mb-12'>
-          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-full">
+          <div className="bg-white dark:text-gray-200 dark:bg-slate-600 m-3 p-4 md:p-12 rounded-2xl md:w-full">
             <div className='flex justify-between'>
               <p className='font-semibold text-xl'>Alerts</p>
               <div className='flex items-center gap-4'>
@@ -147,7 +147,7 @@ const Highlights = () => {
                   <Button 
                     color="white"
                     bgColor={currentColor} 
-                    text="Download Report"
+                    text="See Full Report"
                     borderRadius="10px"
                   />
                 </div>
