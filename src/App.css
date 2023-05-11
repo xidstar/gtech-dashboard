@@ -1,5 +1,9 @@
 @import url('https://cdn.syncfusion.com/ej2/material.css');
 
+#root {
+  background-color: #f6f6f9;;
+}
+
 .sidebar {
   box-shadow: rgb(113 122 131 / 11%) 0px 7px 30px 0px;
 }
@@ -27,6 +31,49 @@
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+/* Highlights */
+
+.highlights .card-content {
+  height: 100%;
+  width: 100%;
+}
+
+.highlights .card-content .card-chart, 
+.highlights .card-content .card-chart svg {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.card-chart p.value {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 40px;
+}
+
+.header-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.card-chart svg {
+  fill: none;
+  stroke: #7380ec;
+  stroke-width: 30;
+  stroke-linecap: round;
+  stroke-dashoffset: -30;
+}
+
+.card-chart svg circle {
+  stroke-dasharray: 550;
+}
+
 
 /* color-picker style  */
 

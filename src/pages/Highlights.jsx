@@ -3,6 +3,7 @@ import React from 'react';
 import Cards from '../components/Highlights/Cards';
 import Card1 from '../components/Highlights/Card1';
 import Card2 from '../components/Highlights/Card2';
+import Card3 from '../components/Highlights/Card3';
 import KanbanCards from '../components/Highlights/KanbanCards';
 import Hero from '../components/Highlights/Hero';
 import Line from './Charts/Line';
@@ -17,8 +18,8 @@ const Highlights = () => {
             <div className='flex flex-wrap justify-around items-start '>
             
                  <Card1 />
-                <Card2 />
-                <Card1 /> 
+                <Card3 />
+                <Card2 /> 
                 {/* <Card1 />
                 <Card1 />
                 <Card1 /> */}
