@@ -11,7 +11,7 @@ const ThemeSettings = () => {
 
   return (
     <div className='bg-half-transparent w-screen fixed nav-item top-0 right-0'>
-      <div className='float-right h-screen ddark:text-gray-200 bg-white dark:[#484b52] w-400'>
+      <div className='float-right h-screen dark:text-gray-200 dark:bg-slate-600 bg-white dark:[#484b52] w-400'>
         <div className='flex justify-between items-center p-4 ml-4'>
           <p className='font-semibold text-xl'>Settings</p>
           <button
@@ -26,7 +26,7 @@ const ThemeSettings = () => {
               <MdOutlineCancel />
           </button>
         </div>
-        <div className="flex-col border-t-1 border-color p-4 ml-4">
+        <div className="flex-col border-t-1 border-color dark:border-slate-200 p-4 ml-4 mr-4">
             <p className='font-semibold text-lg'>Theme Options</p>
             <div className="mt-4">
               <input 
@@ -59,7 +59,7 @@ const ThemeSettings = () => {
               >Dark</label>
             </div>
         </div>
-        <div className="flex-col border-t-1 border-color p-4 ml-4">
+        <div className="flex-col border-t-1 border-color dark:border-slate-200 p-4 ml-4 mr-4">
             <p className='font-semibold text-lg'>Theme Colors</p>
             <div className='flex gap-3'>
               {themeColors.map((item, index) => (

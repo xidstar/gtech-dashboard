@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import {Navbar, Footer, Sidebar, ThemeSettings} from './components';
+import {Navbar, Footer, Sidebar, ThemeSettings, Notification} from './components';
 import {Highlights, Editor, Employees, Kanban, Actions, Users, ColorPicker, Calendar,
    Area, Bar, ColorMapping, GeoMaps, UserProfile, Line, Pie, Stacked} from './pages'
 import './App.css';
@@ -11,24 +11,13 @@ import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
-  const {activeMenu, themeSettings, setThemeSettings, currentMode} = useStateContext();
+  const {activeMenu, themeSettings, setThemeSettings, notification, setNotification, currentMode} = useStateContext();
 
   return (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
-          <div className='fixed right-4 bottom-4' style={{zIndex: '1000'}}>
-            {/* <TooltipComponent content="Settings" position="Top">
-              <button 
-                type="button" 
-                className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light text-white' 
-                style={{background: 'blue', borderRadius: '50%'}}
-                onClick={() => setThemeSettings(true)}
-              >
-                <FiSettings />
-              </button>
-            </TooltipComponent> */}
-          </div>
+          
           {activeMenu ? (
             <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white'>
               <Sidebar />
@@ -47,6 +36,7 @@ const App = () => {
           <div>
             
             {themeSettings && <ThemeSettings />}
+            {notification && <Notification />}
 
             <Routes>
               {/* Dashboard  */}

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import {Link, NavLink} from 'react-router-dom';
-import {SiShopware} from 'react-icons/si';
+import {GoTriangleDown} from 'react-icons/go';
 import {MdOutlineCancel} from 'react-icons/md';
 import {TooltipComponent}from '@syncfusion/ej2-react-popups';
 import { AccordionComponent } from '@syncfusion/ej2-react-navigations';
@@ -49,8 +49,9 @@ const Sidebar = () => {
           <AccordionComponent className='!border-none dark:text-gray-200 dark:bg-secondary-dark-bg'>
             {links.map((item) => (
               <div key={item.title} className="dark:text-gray-100 ">
-                <p className='text-gray-400 m-3 mt-4 uppercase'>
+                <p className='list-items text-gray-400 m-3 mt-4 uppercase flex justify-between items-center w-full'>
                   {item.title}
+                  <GoTriangleDown color={currentColor} />
                 </p>
                 <div className='nav-link w-100 dark:text-gray-300 '>
                   {item.links.map((link) => (

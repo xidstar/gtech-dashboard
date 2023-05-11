@@ -14,19 +14,14 @@ import { pdfExport } from '@syncfusion/ej2/pivotview';
 
 const UserProfile = () => {
   return (
-    <div className='mt-32 md:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
+    <div className='user-profile mt-32 lg:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
     w-11/12 mr-auto ml-auto '>
       <Header category="Page" title="User Profile" />
-      <div className="flex justify-center h-5/6">
-        <div className="web w-1/3 rounded-3xl h-full dark:bg-slate-600">
-            <div className="web-activity">
-                <Bar />
-            </div>
-            {/* <div className="application-activity">
-                <Pie />
-            </div>   */}
-            <div className="activity">
+      <div className="flex flex-col lg:flex-row justify-center h-5/6">
+        <div className="web lg:w-1/3 rounded-3xl w-full dark:bg-slate-600">
+            <div className="chart activity">
                 <Stacked />
+                {/* <Bar /> */}
             </div>
         </div> 
             
@@ -35,23 +30,26 @@ const UserProfile = () => {
             const { Name, EmployeeID, Title, HireDate, ReportsTo, Country, EmployeeImage } = user;
 
             return (
-                <div key={index} className="profile md:ml-5 md:mr-5 p-10 bg-white dark:bg-slate-600
-                 dark:text-white rounded-3xl h-full flex flex-col justify-between">
-                    <Header category="User" title={Name} />
+                <div key={index} className="profile mt-10 mb-10 lg:mt-0 lg:mb-0 lg:ml-5 lg:mr-5 p-10 bg-white dark:bg-slate-600
+                 dark:text-white rounded-3xl flex flex-col justify-between lg:w-1/3 h-auto">
+                    <div>
+                        <Header category="User" title={Name} />
 
-                    <div className='flex'>
-                        <img className='rounded-full w-36 h-36 ' src={EmployeeImage} alt="" />
+                        <div className='flex mb-10 flex-col md:flex-row lg:flex-col xl:flex-row'>
+                            <img className='rounded-full w-36 h-36 ' src={EmployeeImage} alt="" />
 
-                        <div className='info ml-2'>
-                            <p>Name: {Name}</p> 
-                            <p>EmployeeID: {EmployeeID}</p> 
-                            <p>Title: {Title}</p> 
-                            <p>HireDate: {HireDate}</p> 
-                            <p>ReportsTo: {ReportsTo}</p> 
-                            <p>Country: {Country}</p> 
+                            <div className='info ml-2'>
+                                <p>Name: {Name}</p> 
+                                <p>EmployeeID: {EmployeeID}</p> 
+                                <p>Title: {Title}</p> 
+                                <p>HireDate: {HireDate}</p> 
+                                <p>ReportsTo: {ReportsTo}</p> 
+                                <p>Country: {Country}</p> 
+                            </div>
                         </div>
                     </div>
-                    <div className='h-3/6 overflow-hidden rounded-3xl'>
+                    
+                    <div className='chart h-3/6 overflow-hidden rounded-3xl'>
                         <GeoMaps style={{height: "400px !important"}} />
                     </div>
                     
@@ -59,11 +57,11 @@ const UserProfile = () => {
             )
         } )}  
 
-        <div className="network w-1/3 rounded-3xl dark:bg-slate-600">
-            <div className="network-activity">
+        <div className="network lg:w-1/3 rounded-3xl w-full dark:bg-slate-600">
+            <div className="chart network-activity">
                 <Area />
             </div>
-            <div className="recent-alerts md:m-5 dark:bg-secondary-dark-bg
+            <div className="recent-alerts m-5 lg:m-5 dark:bg-secondary-dark-bg
                  dark:text-white">
             <GridComponent 
                 id="gridcomp"

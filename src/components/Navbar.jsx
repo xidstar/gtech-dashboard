@@ -14,7 +14,7 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) => (
     <button type='button' 
       onClick={customFunc} 
       style={{color}}
-      className="relative text-xl rounded-full p-3 pr-5 hover:bg-light-gray">
+      className="relative text-xl rounded-full p-4 hover:bg-light-gray">
         <span style={{background: dotColor}} className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"/>
         {icon}
       </button>
@@ -24,7 +24,7 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) => (
 const Navbar = () => {
   const {activeMenu, setActiveMenu, isClicked, setIsClicked,
      handleClick, screenSize, setScreenSize, themeSettings,
-      setThemeSettings, currentColor, currentMode} = useStateContext();
+      setThemeSettings, notification, setNotification, currentColor, currentMode} = useStateContext();
 
   const pageData = [
     { Id: 'Page1', Page: 'Highlights' },
@@ -57,7 +57,7 @@ const Navbar = () => {
   }, [screenSize]);
   
   return (
-    <div className='flex justify-between md:h-20 p-3 pr-6 bg-gray-100 relative dark:bg-[#000d1c]'>
+    <div className='flex justify-between md:h-20 p-5 bg-gray-100 relative dark:bg-[#000d1c]'>
       <NavButton title="Menu" 
                   customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} 
                   color={currentColor} 
@@ -74,7 +74,7 @@ const Navbar = () => {
             className="bg-gray-100 dark::placeholder-gray-500 placeholder:text-xl placeholder:italic w-full dark:bg-[#000d1c]"
           />
         </div>
-        <div className="nav-icons flex">
+        <div className="nav-icons flex items-center">
           <NavButton title="Settings" 
                       dotColor="#03c9d7"
                       color={currentColor} 
@@ -83,16 +83,16 @@ const Navbar = () => {
           <NavButton title="Notifications" 
                       dotColor="#03c9d7"
                       color={currentColor} 
-                      customFunc={() => handleClick(('notification'))} 
+                      customFunc={() => setNotification(true)} 
                       icon={<BsBellFill />}/>
           <TooltipComponent content="Profile" position='BottomCenter'>
-              <div className='flex items-center gap-2 cursor-pointer pt-1 hover:bg-light-gray rounded-lg'
+              <div className='flex items-center gap-2 ml-2 cursor-pointer hover:scale-105	 rounded-full'
                     onClick={() => handleClick('userProfile')}>
                     <img 
-                      className='rounded-full w-8 h-8 min-w-[32px]'
+                      className='rounded-full w-10 h-10'
                       src={avatar} />
                     <p>
-                      <span className='text-gray-600 ml-1 text-14 dark:text-[#999] hidden md:block'>ITSTS</span>
+                      {/* <span className='text-gray-600 ml-1 text-14 dark:text-[#999] hidden md:block'>ITSTS</span> */}
                     </p>
               </div>
           </TooltipComponent>

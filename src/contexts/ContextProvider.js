@@ -3,8 +3,6 @@ import React, {createContext, useContext, useState} from 'react';
 const StateContext = createContext();
 
 const initialState = {
-    chat: false,
-    cart: false,
     userProfile: false,
     notification: false,
 }
@@ -19,6 +17,9 @@ export const ContextProvider = ({children}) => {
     const [currentColor, setCurrentColor] = useState('#03C9D7');
     const [currentMode, setCurrentMode] = useState('Dark');
     const [themeSettings, setThemeSettings] = useState(false);
+    const [notification, setNotification] = useState(false);
+    
+    const [show, setShow] = useState(true);
 
     const setColor = (color) => {
         setCurrentColor(color); 
@@ -26,6 +27,8 @@ export const ContextProvider = ({children}) => {
         localStorage.setItem('colorMode', color);
 
         setThemeSettings(false);
+
+        setNotification(false);
     }
 
     const setMode = (e) => {
@@ -34,6 +37,8 @@ export const ContextProvider = ({children}) => {
         localStorage.setItem('themeMode', e.target.value);
 
         setThemeSettings(false);
+
+        setNotification(false);
     }
 
     const handleClick = (clicked) => {
@@ -55,7 +60,11 @@ export const ContextProvider = ({children}) => {
                 setColor,
                 setMode,
                 themeSettings,
-                setThemeSettings
+                setThemeSettings,
+                notification,
+                setNotification,
+                show,
+                setShow,
             }}>
             {children}
         </StateContext.Provider>

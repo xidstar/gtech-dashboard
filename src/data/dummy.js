@@ -4,9 +4,8 @@ import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, Fi
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
 import { HiOutlineUsers } from 'react-icons/hi';
-import { GrTransaction } from 'react-icons/gr';
 import { RiContactsLine,  RiEarthFill } from 'react-icons/ri';
-import { MdOutlineSupervisorAccount } from 'react-icons/md';
+import { MdOutlineSupervisorAccount, MdOutlineBookmarkRemove } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid, GiBrokenShield } from 'react-icons/gi';
@@ -504,7 +503,7 @@ export const links = [
     links: [
       {
         name: 'actions',
-        icon: <GrTransaction />,
+        icon: <MdOutlineBookmarkRemove />,
       },
       {
         name: 'employees',
@@ -618,28 +617,28 @@ export const chatData = [
   {
     image:
       avatar2,
-    message: 'Roman Joined the Team!',
+    message: 'Roman Joined the team!',
     desc: 'Congratulate him',
     time: '9:08 AM',
   },
   {
     image:
       avatar3,
-    message: 'New message received',
+    message: 'New request received',
     desc: 'Salma sent you new message',
     time: '11:56 AM',
   },
   {
     image:
       avatar4,
-    message: 'New Payment received',
+    message: 'Added new task',
     desc: 'Check your earnings',
     time: '4:39 AM',
   },
   {
     image:
       avatar,
-    message: 'Jolly completed tasks',
+    message: 'Out of office',
     desc: 'Assign her new tasks',
     time: '1:12 AM',
   },
@@ -654,6 +653,7 @@ export const earningData = [
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
     pcColor: 'red-600',
+    bgColor: 'green-100',
   },
   {
     icon: <BsBoxSeam />,
@@ -662,7 +662,8 @@ export const earningData = [
     title: 'Indicators',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
-    pcColor: 'green-600',
+    pcColor: 'lime-600',
+    bgColor: 'cyan-100',
   },
   {
     icon: <FiBarChart />,
@@ -671,16 +672,18 @@ export const earningData = [
     title: 'Records',
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
-    pcColor: 'green-600',
+    pcColor: 'lime-600',
+    bgColor: 'violet-100',
   },
   {
     icon: <HiOutlineRefresh />,
     amount: '14',
-    percentage: '-12%',
+    percentage: '-18%',
     title: 'Compliance',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
     pcColor: 'red-600',
+    bgColor: 'yellow-100',
   },
   {
     icon: <BsBarChart />,
@@ -688,8 +691,19 @@ export const earningData = [
     percentage: '-12%',
     title: 'Reports',
     iconColor: 'rgb(0, 194, 146)',
-    iconBg: 'rgb(235, 250, 242)',
+    iconBg: 'rgb(234, 193, 242)',
     pcColor: 'red-600',
+    bgColor: 'fuchsia-100',
+  },
+  {
+    icon: <BsShield />,
+    amount: '24',
+    percentage: '2%',
+    title: 'Network Activity',
+    iconColor: 'rgb(0, 194, 146)',
+    iconBg: 'rgb(242, 193, 193)',
+    pcColor: 'lime-600',
+    bgColor: 'orange-100',
   },
 ];
 
