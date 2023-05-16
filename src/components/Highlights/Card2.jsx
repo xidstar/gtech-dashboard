@@ -7,8 +7,8 @@ const Card2 = () => {
     <CardTemplate /> 
 
   return (
-    <CardTemplate title="Actions" content={(
-        <ul>
+    <CardTemplate title="Actions" bgColor="#d1c6e1" content={(
+        <div>
           {actionsData.map((item, index) => (
                 <button key={index} className='hover:bg-slate-200 hover:dark:text-gray-600 w-full pr-2 pl-2 rounded-xl'>
                     <div className='flex justify-between p-4 border-b-1'>
@@ -21,7 +21,7 @@ const Card2 = () => {
                     </div>
                 </button>
             ))}
-        </ul>
+        </div>
       )} />       
   )
 }

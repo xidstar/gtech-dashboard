@@ -18,6 +18,7 @@ export const ContextProvider = ({children}) => {
     const [currentMode, setCurrentMode] = useState('Dark');
     const [themeSettings, setThemeSettings] = useState(false);
     const [notification, setNotification] = useState(false);
+    const [profile, setProfile] = useState(false);
     
     const [show, setShow] = useState(true);
 
@@ -29,6 +30,8 @@ export const ContextProvider = ({children}) => {
         setThemeSettings(false);
 
         setNotification(false);
+
+        setProfile(false);
     }
 
     const setMode = (e) => {
@@ -39,6 +42,8 @@ export const ContextProvider = ({children}) => {
         setThemeSettings(false);
 
         setNotification(false);
+
+        setProfile(false);
     }
 
     const handleClick = (clicked) => {
@@ -65,6 +70,8 @@ export const ContextProvider = ({children}) => {
                 setNotification,
                 show,
                 setShow,
+                profile,
+                setProfile,
             }}>
             {children}
         </StateContext.Provider>

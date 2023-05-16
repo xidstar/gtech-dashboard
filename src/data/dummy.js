@@ -620,6 +620,7 @@ export const chatData = [
     message: 'Roman Joined the team!',
     desc: 'Congratulate him',
     time: '9:08 AM',
+    chat: true,
   },
   {
     image:
@@ -627,20 +628,31 @@ export const chatData = [
     message: 'New request received',
     desc: 'Salma sent you new message',
     time: '11:56 AM',
+    chat: false,
   },
   {
     image:
       avatar4,
-    message: 'Added new task',
+    message: 'We have one set up for 250k',
     desc: 'Check your earnings',
     time: '4:39 AM',
+    chat: true,
   },
   {
     image:
       avatar,
-    message: 'Out of office',
+    message: 'We should also track IP addresses.',
     desc: 'Assign her new tasks',
     time: '1:12 AM',
+    chat: true,
+  },
+  {
+    image:
+      avatar2,
+    message: 'Assign her new tasks',
+    desc: '',
+    time: '1:12 AM',
+    chat: false,
   },
 ];
 
@@ -1577,6 +1589,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
     avatar3,
   },
@@ -1587,6 +1600,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 800,
     EmployeeImage:
       avatar3,
   },
@@ -1597,6 +1611,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 600,
     EmployeeImage:
       avatar4,
   },
@@ -1607,6 +1622,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 300,
     EmployeeImage:
       avatar2,
   },
@@ -1617,6 +1633,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 900,
     EmployeeImage:
       avatar,
   },
@@ -1627,6 +1644,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 100,
     EmployeeImage:
       avatar,
   },
@@ -1637,6 +1655,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 0,
     EmployeeImage:
       avatar2,
   },
@@ -1647,6 +1666,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 350,
     EmployeeImage:
     avatar2,
 
@@ -1658,6 +1678,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 500,
     EmployeeImage:
       avatar3,
   },
@@ -1668,6 +1689,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 650,
     EmployeeImage:
       avatar4,
   },
@@ -1678,6 +1700,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 200,
     EmployeeImage:
       avatar2,
   },
@@ -1688,6 +1711,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 250,
     EmployeeImage:
       avatar,
   },
@@ -1698,6 +1722,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 700,
     EmployeeImage:
       avatar,
   },
@@ -1708,6 +1733,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 550,
     EmployeeImage:
       avatar2,
   },
@@ -1718,6 +1744,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 800,
     EmployeeImage:
     avatar,
   },
@@ -1728,6 +1755,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
       avatar3,
   },
@@ -1738,6 +1766,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 50,
     EmployeeImage:
       avatar4,
   },
@@ -1748,6 +1777,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 0,
     EmployeeImage:
       avatar2,
   },
@@ -1758,6 +1788,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
       avatar,
   },
@@ -1768,6 +1799,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 400,
     EmployeeImage:
       avatar,
   },
@@ -1778,6 +1810,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 200,
     EmployeeImage:
       avatar2,
   },
@@ -1788,6 +1821,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 900,
     EmployeeImage:
     avatar2,
 
@@ -1799,6 +1833,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 600,
     EmployeeImage:
       avatar3,
   },
@@ -1809,6 +1844,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
       avatar4,
   },
@@ -1819,6 +1855,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 100,
     EmployeeImage:
       avatar2,
   },
@@ -1839,6 +1876,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1300,
     EmployeeImage:
       avatar,
   },
@@ -1849,6 +1887,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 150,
     EmployeeImage:
       avatar2,
   },
@@ -1859,6 +1898,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
     avatar2,
 
@@ -1870,6 +1910,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 700,
     EmployeeImage:
       avatar3,
   },
@@ -1880,6 +1921,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 750,
     EmployeeImage:
       avatar4,
   },
@@ -1890,6 +1932,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 150,
     EmployeeImage:
       avatar2,
   },
@@ -1900,6 +1943,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
       avatar,
   },
@@ -1910,6 +1954,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
       avatar,
   },
@@ -1920,6 +1965,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 500,
     EmployeeImage:
       avatar2,
   },
@@ -1930,6 +1976,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 650,
     EmployeeImage:
     avatar2,
 
@@ -1941,6 +1988,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
       avatar3,
   },
@@ -1951,6 +1999,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 100,
     EmployeeImage:
       avatar4,
   },
@@ -1971,6 +2020,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 0,
     EmployeeImage:
       avatar,
   },
@@ -1981,6 +2031,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 350,
     EmployeeImage:
       avatar,
   },
@@ -1991,6 +2042,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 300,
     EmployeeImage:
       avatar2,
   },
@@ -2001,6 +2053,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
     avatar2,
 
@@ -2012,6 +2065,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 400,
     EmployeeImage:
       avatar3,
   },
@@ -2022,6 +2076,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 450,
     EmployeeImage:
       avatar4,
   },
@@ -2032,6 +2087,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 750,
     EmployeeImage:
       avatar2,
   },
@@ -2042,6 +2098,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 400,
     EmployeeImage:
       avatar,
   },
@@ -2052,6 +2109,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
       avatar,
   },
@@ -2062,6 +2120,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
       avatar2,
   },
@@ -2072,6 +2131,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
     avatar2,
 
@@ -2083,6 +2143,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 500,
     EmployeeImage:
       avatar3,
   },
@@ -2093,6 +2154,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 600,
     EmployeeImage:
       avatar4,
   },
@@ -2103,6 +2165,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 600,
     EmployeeImage:
       avatar2,
   },
@@ -2113,6 +2176,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 700,
     EmployeeImage:
       avatar,
   },
@@ -2133,6 +2197,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 800,
     EmployeeImage:
       avatar2,
   },
@@ -2143,6 +2208,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 850,
     EmployeeImage:
     avatar2,
 
@@ -2154,6 +2220,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 900,
     EmployeeImage:
       avatar3,
   },
@@ -2164,6 +2231,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 950,
     EmployeeImage:
       avatar4,
   },
@@ -2174,6 +2242,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 1000,
     EmployeeImage:
       avatar2,
   },
@@ -2184,6 +2253,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 100,
     EmployeeImage:
       avatar,
   },
@@ -2194,6 +2264,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 150,
     EmployeeImage:
       avatar,
   },
@@ -2204,6 +2275,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
+    Score: 200,
     EmployeeImage:
       avatar2,
   },

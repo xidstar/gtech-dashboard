@@ -39,8 +39,8 @@ const Notification = () => {
               >
                 <div className="flex items-center justify-left cursor-pointer h-12 w-full">
                   <img className="rounded-full h-10 mr-3 max-w-6" src={item.image} alt="" />
-                  <p>{item.message}</p>
-                  <p className='mr-0 ml-auto'>{item.time}</p>
+                  <p className='text-left'>{item.message}</p>
+                  <p className='mr-0 ml-auto text-right w-[80px]'>{item.time}</p>
                 </div>
             </button>
             ))}

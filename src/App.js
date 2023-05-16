@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import {Navbar, Footer, Sidebar, ThemeSettings, Notification} from './components';
+import {Navbar, Footer, Sidebar, ThemeSettings, Notification, Profile} from './components';
 import {Highlights, Editor, Employees, Kanban, Actions, Users, ColorPicker, Calendar,
    Area, Bar, ColorMapping, GeoMaps, UserProfile, Line, Pie, Stacked} from './pages'
 import './App.css';
@@ -11,7 +11,7 @@ import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
-  const {activeMenu, themeSettings, setThemeSettings, notification, setNotification, currentMode} = useStateContext();
+  const {activeMenu, themeSettings, setThemeSettings, notification, setNotification, currentMode, profile, setProfile} = useStateContext();
 
   return (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
@@ -33,10 +33,11 @@ const App = () => {
               <Navbar />
             </div>
           
-          <div>
+          <div className=''>
             
             {themeSettings && <ThemeSettings />}
             {notification && <Notification />}
+            {profile && <Profile />}
 
             <Routes>
               {/* Dashboard  */}

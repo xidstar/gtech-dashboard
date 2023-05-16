@@ -4,7 +4,7 @@ import { BsBellFill } from 'react-icons/bs';
 import { RiSettings5Fill } from 'react-icons/ri';
 import {TooltipComponent} from '@syncfusion/ej2-react-popups';
 import avatar from '../data/avatar.jpg'
-import {Cart, Chat, Notification, UserProfile} from '.';
+import {Cart, Chat, Notification, UserProfile, Profile} from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 
 import { AutoCompleteComponent } from '@syncfusion/ej2-react-dropdowns';
@@ -24,7 +24,7 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) => (
 const Navbar = () => {
   const {activeMenu, setActiveMenu, isClicked, setIsClicked,
      handleClick, screenSize, setScreenSize, themeSettings,
-      setThemeSettings, notification, setNotification, currentColor, currentMode} = useStateContext();
+      setThemeSettings, notification, setNotification, currentColor, currentMode, profile, setProfile} = useStateContext();
 
   const pageData = [
     { Id: 'Page1', Page: 'Highlights' },
@@ -86,20 +86,17 @@ const Navbar = () => {
                       customFunc={() => setNotification(true)} 
                       icon={<BsBellFill />}/>
           <TooltipComponent content="Profile" position='BottomCenter'>
-              <div className='flex items-center gap-2 ml-2 cursor-pointer hover:scale-105	 rounded-full'
-                    onClick={() => handleClick('userProfile')}>
+              <div className='flex items-center gap-2 ml-2 cursor-pointer hover:scale-105  w-10 h-10'
+                    onClick={() => setProfile(true)}>
                     <img 
-                      className='rounded-full w-10 h-10'
+                      className='rounded-full'
                       src={avatar} />
-                    <p>
-                      {/* <span className='text-gray-600 ml-1 text-14 dark:text-[#999] hidden md:block'>ITSTS</span> */}
-                    </p>
               </div>
           </TooltipComponent>
         </div>
         
         {isClicked.notification && <Notification />}
-        {isClicked.UserProfile && <UserProfile />}
+        {isClicked.profile && <Profile />}
       </div>
     </div>
   )
