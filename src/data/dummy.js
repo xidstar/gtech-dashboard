@@ -2,7 +2,7 @@ import React from 'react';
 import { AiOutlineCalendar, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiUser } from 'react-icons/fi';
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsCircleFill, BsDashLg } from 'react-icons/bs';
-import { BiColorFill } from 'react-icons/bi';
+import { FaRegPaperPlane } from 'react-icons/fa';
 import { HiOutlineUsers } from 'react-icons/hi';
 import { RiContactsLine,  RiEarthFill } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount, MdOutlineBookmarkRemove } from 'react-icons/md';
@@ -76,6 +76,7 @@ export const kanbanGrid = [
     keyField: 'Close',
     allowToggle: true },
 ];
+
 const gridEmployeeProfile = (props) => (
   <div className="flex items-center gap-2">
     <img
@@ -500,7 +501,7 @@ export const links = [
       },
       {
         name: 'recent-poams',
-        icon: <GiBrokenShield />,
+        icon: <FaRegPaperPlane />,
       },
     ],
   },
@@ -1596,7 +1597,7 @@ export const riskStatus = (props) => (
 
 export const riskChange = (props) => (
   <div className="flex items-center justify-center">
-    
+    {props.Change}
   </div>
 );
 
@@ -3823,6 +3824,243 @@ export const stackedPrimaryYAxis = {
   minorTickLines: { width: 0 },
   labelFormat: '{value}',
 };
+
+export const statusPOAM = (props) => (
+  <div className="flex items-center justify-center p2 w-[100px] mx-auto" style={{backgroundColor : props.Color, color : `${props.Color === "#cd1a57" ? "#fff" : "#000"}`}}>
+    {props.Status}
+  </div>
+);
+
+export const descPOAM = (props) => (
+  <div className="flex items-center justify-center p2 w-[100px] mx-auto text-cyan-400">
+    {props.Description}
+  </div>
+);
+
+export const poamsData = [
+  {
+    Category: 1,
+    Status: 'Open',
+    AnalysisDesc: 'Analyze the new requirements gathered from the customer.',
+    SubmittedFor: 'System C',
+    Priority: 'Low',
+    Description: 'Password Encryption',
+    SubmittedBy: 'Nancy Davloio',
+    Color: '#84ed47',
+  },
+  {
+    Category: 1,
+    Status: 'In Progress',
+    AnalysisDesc: 'Improve application performance',
+    SubmittedFor: 'System C',
+    Priority: 'Low',
+    Description: 'AWS Integration',
+    SubmittedBy: 'Andrew Fuller',
+    Color: '#edcc47',
+  },
+  {
+    Category: 1,
+    Status: 'Open',
+    AnalysisDesc: 'Arrange a web meeting with the customer to get new requirements.',
+    SubmittedFor: 'System C',
+    Priority: 'Critical',
+    Description: 'Deploy Firewall',
+    SubmittedBy: 'Janet Leverling',
+    Color: '#84ed47',
+  },
+  {
+    Category: 2,
+    Status: 'Open',
+    AnalysisDesc: 'Fix the issues reported in the IE browser.',
+    SubmittedFor: 'System D',
+    Priority: 'High',
+    Description: 'Procure Router',
+    SubmittedBy: 'Janet Leverling',
+    Color: '#84ed47',
+  },
+  {
+    Category: 1,
+    Status: 'In Progress',
+    AnalysisDesc: 'Validate new requirements.',
+    SubmittedFor: 'System D',
+    Priority: 'High',
+    Description: 'Insider Threat Training',
+    SubmittedBy: 'Steven walker',
+    Color: '#edcc47',
+  },
+  {
+    Category: 2,
+    Status: 'Closed',
+    AnalysisDesc: 'Fix pending bugs.',
+    SubmittedFor: 'System C',
+    Priority: 'Critical',
+    Description: 'IOS Compatibility',
+    SubmittedBy: 'Jack Trudeu',
+    Color: '#cd1a57',
+  },
+  {
+    Category: 1,
+    Status: 'Open',
+    AnalysisDesc: 'Analyze the new requirements gathered from the customer.',
+    SubmittedFor: 'System C',
+    Priority: 'Low',
+    Description: 'Analyze,Customer',
+    SubmittedBy: 'Nancy Davloio',
+    Color: '#84ed47',
+  },
+  {
+    Category: 1,
+    Status: 'In Progress',
+    AnalysisDesc: 'Improve application performance',
+    SubmittedFor: 'System C',
+    Priority: 'Low',
+    Description: 'AWS Integration',
+    SubmittedBy: 'Andrew Fuller',
+    Color: '#edcc47',
+  },
+  {
+    Category: 1,
+    Status: 'Open',
+    AnalysisDesc: 'Arrange a web meeting with the customer to get new requirements.',
+    SubmittedFor: 'System C',
+    Priority: 'Critical',
+    Description: 'Deploy Firewall.',
+    SubmittedBy: 'Janet Leverling',
+    Color: '#84ed47',
+  },
+  {
+    Category: 2,
+    Status: 'Open',
+    AnalysisDesc: 'Fix the issues reported in the IE browser.',
+    SubmittedFor: 'System D',
+    Priority: 'High',
+    Description: 'Procure Router',
+    SubmittedBy: 'Janet Leverling',
+    Color: '#84ed47',
+  },
+  {
+    Category: 1,
+    Status: 'In Progress',
+    AnalysisDesc: 'Validate new requirements.',
+    SubmittedFor: 'System D',
+    Priority: 'High',
+    Description: 'Insider Threat Training',
+    SubmittedBy: 'Steven walker',
+    Color: '#edcc47',
+  },
+  {
+    Category: 2,
+    Status: 'Closed',
+    AnalysisDesc: 'Fix pending bugs.',
+    SubmittedFor: 'System C',
+    Priority: 'Critical',
+    Description: 'IOS Compatibility',
+    SubmittedBy: 'Jack Trudeu',
+    Color: '#cd1a57',
+  },
+  {
+    Category: 1,
+    Status: 'Open',
+    AnalysisDesc: 'Analyze the new requirements gathered from the customer.',
+    SubmittedFor: 'System C',
+    Priority: 'Low',
+    Description: 'Analyze,Customer',
+    SubmittedBy: 'Nancy Davloio',
+    Color: '#84ed47',
+  },
+  {
+    Category: 1,
+    Status: 'In Progress',
+    AnalysisDesc: 'Improve application performance',
+    SubmittedFor: 'System C',
+    Priority: 'Low',
+    Description: 'AWS Integration',
+    SubmittedBy: 'Andrew Fuller',
+    Color: '#edcc47',
+  },
+  {
+    Category: 1,
+    Status: 'Open',
+    AnalysisDesc: 'Arrange a web meeting with the customer to get new requirements.',
+    SubmittedFor: 'System C',
+    Priority: 'Critical',
+    Description: 'Deploy Firewall.',
+    SubmittedBy: 'Janet Leverling',
+    Color: '#84ed47',
+  },
+  {
+    Category: 2,
+    Status: 'Open',
+    AnalysisDesc: 'Fix the issues reported in the IE browser.',
+    SubmittedFor: 'System D',
+    Priority: 'High',
+    Description: 'Procure Router',
+    SubmittedBy: 'Janet Leverling',
+    Color: '#84ed47',
+  },
+  {
+    Category: 1,
+    Status: 'In Progress',
+    AnalysisDesc: 'Validate new requirements.',
+    SubmittedFor: 'System D',
+    Priority: 'High',
+    Description: 'Insider Threat Training',
+    SubmittedBy: 'Steven walker',
+    Color: '#edcc47',
+  },
+  {
+    Category: 2,
+    Status: 'Closed',
+    AnalysisDesc: 'Fix pending bugs.',
+    SubmittedFor: 'System C',
+    Priority: 'Critical',
+    Description: 'IOS Compatibility',
+    SubmittedBy: 'Jack Trudeu',
+    Color: '#cd1a57',
+  },
+  
+]
+
+export const recentPOAMS = [
+  { field: 'Category',
+    headerText: 'Category',
+    width: '100',
+    textAlign: 'Center',
+  },
+  { field: 'Priority',
+    headerText: 'Priority',
+    width: '100',
+    textAlign: 'Center',
+  },
+  { field: 'SubmittedBy',
+    headerText: 'Submitted By',
+    width: '100',
+    textAlign: 'Center',
+  },
+  { field: 'SubmittedFor',
+    headerText: 'Submitted For',
+    width: '100',
+    textAlign: 'Center',
+  },
+  { field: 'Description',
+    headerText: 'Description',
+    width: '150',
+    textAlign: 'Center',
+    template: descPOAM
+  },
+  { field: 'AnalysisDesc',
+    headerText: 'Analysis Desc',
+    width: '250',
+    textAlign: 'Left',
+  },
+  { field: 'Status',
+    headerText: 'Status',
+    width: '150',
+    textAlign: 'Center',
+    template: statusPOAM
+  },
+]
+
 
 export const kanbanData = [
   {

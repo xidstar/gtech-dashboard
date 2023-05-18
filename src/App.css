@@ -225,6 +225,11 @@
   color: red;
 }
 
+.e-grid .e-pager {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* User Profile */
 
 .user-profile .chart {

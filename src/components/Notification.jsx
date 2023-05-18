@@ -4,7 +4,7 @@ import { chatData, actionsData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Notification = () => {
-  const {setColor, setMode, currentMode, currentColor, setNotification} = useStateContext();
+  const {setNotification} = useStateContext();
 
   return (
     <div className='bg-half-transparent w-screen fixed nav-item top-0 right-0'>

@@ -15,7 +15,7 @@ import { pdfExport } from '@syncfusion/ej2/pivotview';
 const UserProfile = () => {
   return (
     <div className='user-profile mt-32 lg:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
-    w-11/12 mr-auto ml-auto '>
+    w-11/12 mr-auto ml-auto shadow-xl '>
       <Header category="Page" title="User Profile" />
       <div className="flex flex-col lg:flex-row justify-center h-5/6">
         <div className="web lg:w-1/3 rounded-3xl w-full dark:bg-slate-600">
