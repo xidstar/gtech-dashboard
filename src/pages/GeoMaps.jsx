@@ -1,4 +1,6 @@
 import React from 'react'
+import { skate_parks, world_map } from '../data/dummy';
+import { MapsComponent, LayersDirective, LayerDirective } from '@syncfusion/ej2-react-maps';
 
 const GeoMaps = () => {
   
@@ -13,6 +15,12 @@ const GeoMaps = () => {
         referrerpolicy="no-referrer-when-downgrade">
 
       </iframe>
+    // <MapsComponent id="maps">
+    //         <LayersDirective>
+    //             <LayerDirective shapeData={skate_parks}>
+    //             </LayerDirective>
+    //         </LayersDirective>
+    //     </MapsComponent>
     
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from "react-dom";
 import {Link, NavLink} from 'react-router-dom';
 import {GoTriangleDown} from 'react-icons/go';
 import {MdOutlineCancel} from 'react-icons/md';

@@ -5,7 +5,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import {Navbar, Footer, Sidebar, ThemeSettings, Notification, Profile} from './components';
 import {Highlights, Editor, Employees, Kanban, Actions, Users, ColorPicker, Calendar,
-   Area, Bar, ColorMapping, GeoMaps, UserProfile, Line, Pie, Stacked} from './pages'
+   Area, Bar, ColorMapping, GeoMaps, UserProfile, Line, Pie, Stacked, HighestRiskExposures, RecentPOAMs } from './pages'
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
@@ -43,6 +43,8 @@ const App = () => {
               {/* Dashboard  */}
               <Route path="/" element={<Highlights />} />
               <Route path="/highlights" element={<Highlights />} />
+              <Route path="/highest-risk-exposures" element={<HighestRiskExposures />} />
+              <Route path="/recent-poams" element={<RecentPOAMs />} />
 
               {/* Pages */}
               <Route path="/actions" element={<Actions />} />
