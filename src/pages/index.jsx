@@ -3,6 +3,7 @@ export { default as HighestRiskExposures } from './HighestRiskExposures';
 export { default as RecentPOAMs } from './RecentPOAMs';
 export { default as Kanban } from './Kanban';
 export { default as Actions } from './Actions';
+export { default as Indicators } from './Indicators';
 export { default as Employees } from './Employees';
 export { default as Editor } from './Editor';
 export { default as Users } from './Users';

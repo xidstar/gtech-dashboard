@@ -74,6 +74,26 @@
   stroke-dasharray: 550;
 }
 
+#CardActions, #CardSummary, #CardIndicators {
+  width: 30%;
+}
+
+#CardCompliance {
+  color: #ccc;
+}
+
+@media(max-width: 768px) {
+ .card-wrapper {
+    margin-top: 100px;
+  }
+}
+
+@media(max-width: 1600px) {
+  #CardActions, #CardSummary, #CardIndicators {
+    width: 100%;
+  }
+}
+
 
 /* color-picker style  */
 
@@ -243,3 +263,33 @@
 .user-profile .chart:first-child {
   height: -webkit-fill-available;
 }
+
+
+
+/* user profile */
+
+.user-profile {
+  width: 90%;
+}
+
+@media(max-width: 1600px) {
+  .user-profile .web,
+  .user-profile .profile,
+  .user-profile .network {
+    margin-bottom: 40px;
+  }
+
+}
+
+@media(min-width: 1600px) {
+  .profile-wrapper {
+    flex-direction: row;
+  }
+
+  .user-profile .web,
+  .user-profile .profile,
+  .user-profile .network {
+    width: 33%;
+  }
+}
+

@@ -17,7 +17,7 @@ const Card4 = () => {
               >
                 <div className="flex justify-between p-4 border-b-1">
                   <img className="rounded-full h-8 mr-3 max-w-6" src={item.image} alt="" />
-                  <p className='flex items-center text-left'>{item.message} {item.chat ? <span className='pl-1'><BsChat /></span> : ''}  </p>
+                  <p className='flex items-center text-left'>{item.message} {item.chat ? <span className='pl-1'><BsChat style={{marginLeft: "10px"}} /></span> : ''}  </p>
                   <p className='mr-0 ml-auto text-xs text-right w-[80px]'>{item.time}</p>
                 </div>
             </button>

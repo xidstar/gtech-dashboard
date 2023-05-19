@@ -1,26 +1,120 @@
-import React from 'react'
-import { skate_parks, world_map } from '../data/dummy';
-import { MapsComponent, LayersDirective, LayerDirective } from '@syncfusion/ej2-react-maps';
+import React, {useEffect} from 'react'
+import { statesData } from '../data/dummy';
+import {MapContainer, TileLayer, Polygon, Marker, Popup} from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import markerIconPng from "leaflet/dist/images/marker-icon.png"
+import {Icon} from 'leaflet'
 
 const GeoMaps = () => {
+
+  const center = [38.7851571,-76.7249689]
+  const position1 = [38.9092573, -76.836643]
+  const position2 = [38.9041741, -77.0369584]
+  const position3 = [39.2877389, -76.6123732]
+  const position4 = [51.5066479,-0.1433187]
   
   return (
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.6413495337406!2d-76.8393085234481!3d38.90931614599973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7bff7e1ecaf95%3A0x7254f178a0b35046!2sGraham%20Technologies!5e0!3m2!1sen!2sus!4v1682973951709!5m2!1sen!2sus" 
-        width="600" 
-        height="450" 
-        style={{border:0, width: "100%", height: "100vh"}} 
-        allowfullscreen="true" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
+    // <iframe 
+    //     src="https://api.maptiler.com/maps/basic-v2/?key=9VSwUUuYtWf0fNEsgX5Q#1.0/0.00000/0.00000" 
+    //     width="600" 
+    //     height="450" 
+    //     style={{border:0, width: "100%", height: "100vh"}} 
+    //     allowfullscreen="true" 
+    //     loading="lazy" 
+    //     referrerpolicy="no-referrer-when-downgrade">
 
-      </iframe>
-    // <MapsComponent id="maps">
-    //         <LayersDirective>
-    //             <LayerDirective shapeData={skate_parks}>
-    //             </LayerDirective>
-    //         </LayersDirective>
-    //     </MapsComponent>
+    //   </iframe>
+
+    <MapContainer
+      center={center}
+      zoom={10}
+      style={{border:0, width: "100%", height: "100vh"}} 
+    >
+      <TileLayer
+        url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=9VSwUUuYtWf0fNEsgX5Q"
+        attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+      />
+      <Marker position={position1} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
+        <Popup>
+          Location: Graham Technologies.
+          <br />
+          Date: 01/ 02/ 2023
+          <br />
+          Time: 13:48 EST
+        </Popup>
+      </Marker>
+      <Marker position={position2} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
+        <Popup>
+          Location: Government Office.
+          <br />
+          Date: 10/12/2022
+          <br />
+          Time: 11:48 EST
+        </Popup>
+      </Marker>
+      <Marker position={position3} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
+        <Popup>
+          Location: Cybersecurity Conference.
+          <br />
+          Date: 05/17/2023
+          <br />
+          Time: 9:15 EST
+        </Popup>
+      </Marker>
+      <Marker position={position4} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
+        <Popup>
+          Location: The Ritz Carlton Hotel, London.
+          <br />
+          Date: 03/10/2023
+          <br />
+          Time: 23:00 EST
+        </Popup>
+      </Marker>
+      {
+        statesData.features.map((state) => {
+          const coordinates = state.geometry.coordinates[0].map((item) => [item[1], item[0]]);
+
+          return (
+            <Polygon 
+              pathOptions={{
+                fillColor: '#fd8d3c',
+                fillOpacity: 0.7,
+                weight: 2,
+                opacity: 1,
+                dashArray: 3,
+                color: 'white',
+              }}
+              positions={coordinates}
+              eventHandlers={{
+                mouseover: (e) => {
+                  const layer = e.target;
+                  layer.setStyle({
+                    fillOpacity: 0.7,
+                    weight: 5,
+                    dashArray: "3",
+                    color: "#666",
+                    fillColor: "#d45962"
+                  })
+                },
+                mouseout: (e) => {
+                  const layer = e.target;
+                  layer.setStyle({
+                    fillOpacity: 0.7,
+                    weight: 2,
+                    dashArray: "3",
+                    color: "white",
+                    fillColor: "#fd8d3c"
+                  })
+                },
+                click: (e) => {
+
+                },
+              }}
+            />
+          )
+        })
+      }
+    </MapContainer>
     
   )
 }
