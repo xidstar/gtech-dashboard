@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { AiOutlineCalendar, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiUser } from 'react-icons/fi';
-import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsCircleFill, BsDashLg } from 'react-icons/bs';
-import { FaRegPaperPlane } from 'react-icons/fa';
+import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsCircleFill, BsDashLg, BsFlagFill } from 'react-icons/bs';
+import { FaRegPaperPlane, FaCheckCircle } from 'react-icons/fa';
 import { HiOutlineUsers } from 'react-icons/hi';
 import { RiContactsLine,  RiEarthFill } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount, MdOutlineBookmarkRemove } from 'react-icons/md';
@@ -15,6 +15,7 @@ import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
 import avatar4 from './avatar4.jpg';
+import avatar5 from './avatar5.png';
 import product1 from './product1.jpg';
 import product2 from './product2.jpg';
 import product3 from './product3.jpg';
@@ -23,14 +24,16 @@ import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
 import product8 from './product8.jpg';
+import { useStateContext } from '../contexts/ContextProvider';
 
-export const gridOrderImage = (props) => {
-  
+export const GridOrderImage = (props) => {
+  const {icon, setIcon} = useStateContext();
   let unshuffled = props.ProductImage;
   let shuffled = unshuffled
     .map(value => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value)
+  
 
   return (
     <div className='!flex justify-center'>
@@ -38,15 +41,117 @@ export const gridOrderImage = (props) => {
       
         shuffled.map((item, index) => { 
         return (
-          <img
-            key={index}
-            className="rounded-full h-14 md:ml-3 max-w-8"
-            src={item.image}
-            alt="approver"
-          />
+          <div className='avatar-wrapper relative w-20 h-20'>
+            <div className='icon absolute right-0 top-0'>{item.icon}</div>
+            <img
+              key={index}
+              className="rounded-full h-16 md:ml-3 max-w-8"
+              src={item.image}
+              alt="approver"
+            />
+          </div> 
+          
         )})}
+        <div className='avatar-wrapper relative w-20 h-20'>
+          <div className='icon absolute right-0 top-0'>
+            {icon}
+          </div>
+              <img 
+                src={avatar5}
+                className="rounded-full h-16 md:ml-3 max-w-8" 
+                alt='' />
+          </div>
     </div>
   )};
+
+  export const ToggleAction = () => {
+    const {icon, setIcon} = useStateContext();
+    {setIcon(<FaCheckCircle className='fill-green-600 text-lg' />)}
+  }
+
+export const gridAction = (props) => (
+  <div className='flex'>
+    <button
+        type="button"
+        style={{ background: "#f7f7f7"}}
+        className="text-black py-1 px-2 w-[100px] rounded-md text-lg"
+      >
+        Reject
+    </button>
+    <button
+        type="button"
+        style={{ background: "#03b54a", color: "#fff"}}
+        className="text-black py-2 px-3 ml-2 w-[100px] rounded-md text-lg hover:bg-green-500"
+        onClick={() => {}}
+      >
+        Approve
+    </button>
+  </div>
+  
+);
+
+export const avatars = [
+  {
+    image: avatar2,
+    icon: <BsFlagFill className='fill-red-600 text-lg' />,
+  },
+  {
+    image:avatar3,
+    icon: <FaCheckCircle className='fill-green-600 text-lg' />,
+  },
+  {
+    image: avatar2,
+    icon: <FaCheckCircle className='fill-green-600 text-lg' />,
+  },
+  {
+    image: avatar4,
+    icon: <BsFlagFill className='fill-red-600 text-lg' />,
+  },
+]
+
+
+export const actionsData = [
+  {
+    Title: 'Cisco Switch Catalyst 9400',
+    ActionID: 10248,
+    Location: 'Washington, D.C',
+    Status: 'pending',
+    StatusBg: '#FB9678',
+    ProductImage: avatars
+  },
+  {
+    Title: 'McAfee April 2023 Patch',
+    ActionID: 345653,
+    Location: 'New York',
+    Status: 'complete',
+    StatusBg: '#8BE78B',
+    ProductImage: avatars
+  },
+  {
+    Title: 'Oracle March 2022 Patch',
+    ActionID: 390457,
+    Location: 'Chicago',
+    Status: 'active',
+    StatusBg: '#03C9D7',
+    ProductImage: avatars
+  },
+  {
+    Title: 'Deploy Firewall',
+    ActionID: 946580,
+    Location: 'Austin',
+    Status: 'canceled',
+    StatusBg: '#FF5C8E',
+    ProductImage: avatars
+  },
+  {
+    Title: 'Import Python Flask',
+    ActionID: 6545378,
+    Location: 'Austin',
+    Status: 'Denied',
+    StatusBg: 'red',
+    ProductImage: avatars
+  },
+]
 
 export const gridOrderStatus = (props) => (
   <button
@@ -156,6 +261,73 @@ const customerGridStatus = (props) => (
     <p>{props.Status}</p>
   </div>
 );
+
+export const WebData = [
+  {
+    id: 1,
+    application: "GitHub",
+    timeSpent: 23,
+  },
+  {
+    id: 2,
+    application: "AWS",
+    timeSpent: 15,
+  },
+  {
+    id: 3,
+    application: "Online Shopping",
+    timeSpent: 30,
+  },
+  {
+    id: 4,
+    application: "Netflix",
+    timeSpent: 10,
+  },
+  {
+    id: 5,
+    application: "Social Media",
+    timeSpent: 6,
+  },
+  {
+    id: 6,
+    application: "Other",
+    timeSpent: 16,
+  },
+]
+
+export const ApplicationData = [
+  {
+    id: 1,
+    application: "Eclipse",
+    timeSpent: 23,
+  },
+  {
+    id: 2,
+    application: "Jira",
+    timeSpent: 15,
+  },
+  {
+    id: 3,
+    application: "Confluence",
+    timeSpent: 30,
+  },
+  {
+    id: 4,
+    application: "Outlook",
+    timeSpent: 10,
+  },
+  {
+    id: 5,
+    application: "Microsoft Teams",
+    timeSpent: 6,
+  },
+  {
+    id: 6,
+    application: "Other",
+    timeSpent: 16,
+  },
+]
+
 export const areaPrimaryXAxis = {
   valueType: 'DateTime',
   labelFormat: 'y',
@@ -660,9 +832,33 @@ export const chatData = [
   },
   {
     image:
-      avatar2,
+      avatar3,
+    message: 'New request received',
+    desc: 'It will only trigger once',
+    time: '3:45 PM',
+    chat: true,
+  },
+  {
+    image:
+      avatar4,
+    message: 'We have one set up for 250k',
+    desc: 'Proposed new financial indicator',
+    time: '8:39 AM',
+    chat: false,
+  },
+  {
+    image:
+      avatar,
+    message: 'We should also track IP addresses.',
+    desc: 'Changed login location',
+    time: '6:55 PM',
+    chat: true,
+  },
+  {
+    image:
+      avatar3,
     message: 'Assign her new tasks',
-    desc: '',
+    desc: 'Changed login location',
     time: '1:12 AM',
     chat: false,
   },
@@ -956,17 +1152,6 @@ export const actionsGrid = [
     editType: 'dropdownedit',
     textAlign: 'Left',
   },
-  { field: 'ActionID',
-    headerText: 'Action ID',
-    width: '100',
-    textAlign: 'Center',
-  },
-  {
-    headerText: 'Approvers',
-    template: gridOrderImage,
-    textAlign: 'Center',
-    width: '300',
-  },
   {
     headerText: 'Status',
     template: gridOrderStatus,
@@ -974,18 +1159,30 @@ export const actionsGrid = [
     textAlign: 'Center',
     width: '120',
   },
+  // { field: 'ActionID',
+  //   headerText: 'Action ID',
+  //   width: '100',
+  //   textAlign: 'Center',
+  // },
   {
-    field: 'Location',
-    headerText: 'Location',
-    width: '150',
+    headerText: 'Approvers',
+    template: GridOrderImage,
     textAlign: 'Center',
+    width: '300',
   },
+  {
+    headerText: 'Action',
+    template: gridAction,
+    textAlign: 'Center',
+    width: '150',
+  },
+  
 ]
 
 export const ordersGrid = [
   {
     headerText: 'Image',
-    template: gridOrderImage,
+    template: GridOrderImage,
     textAlign: 'Center',
     width: '100',
   },
@@ -2592,143 +2789,7 @@ export const employeesData = [
 //   },
 // ]
 
-export const actionsData = [
-  {
-    Title: 'Cisco Switch Catalyst 9400',
-    ActionID: 10248,
-    Location: 'Washington, D.C',
-    Status: 'pending',
-    StatusBg: '#FB9678',
-    // ProductImage:
-      // avatar,
-    ProductImage: [
-      {
-        image:
-          avatar2,
-      },
-      {
-        image:
-          avatar3,
-      },
-      {
-        image:
-          avatar2,
-      },
-      {
-        image:
-          avatar4,
-      },
-    ]
-  },
-  {
-    Title: 'McAfee April 2023 Patch',
-    ActionID: 345653,
-    Location: 'New York',
-    Status: 'complete',
-    StatusBg: '#8BE78B',
-    // ProductImage:
-    //   avatar2,
-    ProductImage: [
-      {
-        image:
-          avatar2,
-      },
-      {
-        image:
-          avatar3,
-      },
-      {
-        image:
-          avatar2,
-      },
-      {
-        image:
-          avatar4,
-      },
-    ]
-  },
-  {
-    Title: 'Oracle March 2022 Patch',
-    ActionID: 390457,
-    Location: 'Chicago',
-    Status: 'active',
-    StatusBg: '#03C9D7',
-    // ProductImage:
-    //   avatar3,
-    ProductImage: [
-      {
-        image:
-          avatar2,
-      },
-      {
-        image:
-          avatar3,
-      },
-      {
-        image:
-          avatar2,
-      },
-      {
-        image:
-          avatar4,
-      },
-    ]
-  },
-  {
-    Title: 'Deploy Firewall',
-    ActionID: 946580,
-    Location: 'Austin',
-    Status: 'canceled',
-    StatusBg: '#FF5C8E',
-    // ProductImage: 
-    //   avatar4,
-    ProductImage: [
-      {
-        image:
-          avatar2,
-      },
-      {
-        image:
-          avatar3,
-      },
-      {
-        image:
-          avatar2,
-      },
-      {
-        image:
-          avatar4,
-      },
-    ]
-  },
-  {
-    Title: 'Import Python Flask',
-    ActionID: 6545378,
-    Location: 'Austin',
-    Status: 'rejected',
-    StatusBg: 'red',
-    // ProductImage:
-    //   avatar,
-    ProductImage: [
-      {
-        image:
-          avatar2,
-      },
-      {
-        image:
-          avatar3,
-      },
-      {
-        image:
-          avatar2,
-      },
-      {
-        image:
-          avatar4,
-      },
-    ]
-  },
-]
+
 
 export const ordersData = [
   {

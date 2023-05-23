@@ -9,7 +9,7 @@ const Card4 = () => {
     return (
       <CardTemplate title="Indicators" bgColor="#8dbc87" content={(
           <div>
-            {chatData.map((item, index) => (
+            {chatData.slice(0,5).map((item, index) => (
               <button 
                 key={index} 
                 className='hover:bg-slate-200 hover:dark:text-gray-600 w-full pr-2 pl-2 rounded-xl'

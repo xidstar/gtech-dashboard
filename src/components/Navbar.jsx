@@ -3,7 +3,7 @@ import { AiOutlineMenu  } from 'react-icons/ai';
 import { BsBellFill } from 'react-icons/bs';
 import { RiSettings5Fill } from 'react-icons/ri';
 import {TooltipComponent} from '@syncfusion/ej2-react-popups';
-import avatar from '../data/avatar.jpg'
+import avatar from '../data/avatar5.png'
 import {Cart, Chat, Notification, UserProfile, Profile} from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 

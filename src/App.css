@@ -78,7 +78,7 @@
   width: 30%;
 }
 
-#CardCompliance {
+#CardWeb, #CardApplications {
   color: #ccc;
 }
 
@@ -292,4 +292,3 @@
     width: 33%;
   }
 }
-

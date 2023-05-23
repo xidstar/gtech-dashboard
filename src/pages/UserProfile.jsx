@@ -10,18 +10,19 @@ import { GridComponent, ColumnsDirective, ColumnDirective, Page, Inject, Sort } 
 import { actionsData, contextMenuItems, actionsGrid } from '../data/dummy';
 
 import Card3 from '../components/Highlights/Card3';
+import Card5 from '../components/Highlights/Card5';
 
 
 
 const UserProfile = () => {
   return (
     <div className='user-profile mt-32 lg:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
-     mr-auto ml-auto shadow-xl '>
+     mr-auto ml-auto shadow-xl xl:h-5/6'>
       <Header category="Page" title="User Profile" />
         <div className="profile-wrapper flex flex-col justify-center">
             <div className="web rounded-3xl w-full dark:bg-slate-600">
-                <div className="chart activity">
-                    <Bar />
+                <div className="p-5 pt-0 flex justify-center">
+                    <Card5 />
                 </div>
                 <div className='p-5 pt-0 flex justify-center'>
                     <Card3 />

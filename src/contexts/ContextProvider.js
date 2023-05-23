@@ -1,4 +1,6 @@
 import React, {createContext, useContext, useState} from 'react';
+import { BsFlagFill } from 'react-icons/bs';
+import { FaCheckCircle } from 'react-icons/fa';
 
 const StateContext = createContext();
 
@@ -21,6 +23,7 @@ export const ContextProvider = ({children}) => {
     const [profile, setProfile] = useState(false);
     
     const [show, setShow] = useState(true);
+    const [icon, setIcon] = useState(<BsFlagFill className='fill-red-600 text-lg' />);
 
     const setColor = (color) => {
         setCurrentColor(color); 
@@ -72,6 +75,8 @@ export const ContextProvider = ({children}) => {
                 setShow,
                 profile,
                 setProfile,
+                icon,
+                setIcon,
             }}>
             {children}
         </StateContext.Provider>

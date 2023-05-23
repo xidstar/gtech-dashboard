@@ -1,22 +1,17 @@
 import React, {useState} from 'react';
 import CardTemplate from './CardTemplate';
-import { WebData } from '../../data/dummy';
-import DoughnutChart from './DoughnutChart';
+import { ApplicationData } from '../../data/dummy';
+import BarChart from './BarChart';
 
-
-
-const Card3 = () => {
-
-  
-
+const Card5 = () => {
     <CardTemplate />  
 
-    const [webData, setWebData] = useState({
-      labels: WebData.map((data) => data.application),
+    const [applicationData, setApplicationData] = useState({
+      labels: ApplicationData.map((data) => data.application),
       datasets: [
         {
-          label: "Web Activity",
-          data: WebData.map((data) => data.timeSpent),
+          label: "Application Activity",
+          data: ApplicationData.map((data) => data.timeSpent),
           backgroundColor: [
             "#26517c",
             "#ff4ced",
@@ -33,10 +28,10 @@ const Card3 = () => {
     
     
     return (
-      <CardTemplate title="Web" bgColor="#33373e" content={(
+      <CardTemplate title="Applications" bgColor="#33373e" content={(
         <div className='card-chart h-full relative flex items-center justify-center'>
-            <div style={{ width: "100%" }}>
-              <DoughnutChart chartData={webData} />
+            <div style={{ width: 700 }}>
+              <BarChart chartData={applicationData} />
             </div>
           
         </div>
@@ -46,4 +41,4 @@ const Card3 = () => {
     )
 }
 
-export default Card3
+export default Card5

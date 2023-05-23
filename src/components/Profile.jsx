@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdOutlineCancel } from 'react-icons/md';
 import { useStateContext } from '../contexts/ContextProvider';
-import avatar from '../data/avatar.jpg';
+import avatar from '../data/avatar5.png';
 import {FaSignOutAlt, FaQuestionCircle, FaInfoCircle, FaTools} from 'react-icons/fa';
 
 const Profile = () => {
@@ -15,7 +15,7 @@ const Profile = () => {
              <img 
                   className='rounded-full w-10 h-10'
                   src={avatar} />
-                  <p className="pl-3 font-semibold text-xl">Hi, Christopher!</p>
+                  <p className="pl-3 font-semibold text-xl">Hi, Chris!</p>
              </div>
               <button
                 type="button"
