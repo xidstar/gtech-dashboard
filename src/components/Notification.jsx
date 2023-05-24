@@ -31,10 +31,10 @@ const Notification = () => {
                   {chatData.length}+
               </span>
             </p>
-            {chatData.map((item, index) => (
+            {chatData.slice(0, 5).map((item, index) => (
               <button 
                 key={index} 
-                className='hover:bg-slate-200 hover:dark:text-gray-600 w-full pr-2 pl-2 rounded-xl'
+                className='hover:bg-slate-200 hover:dark:text-gray-600 w-full pr-2 pl-2 rounded-xl pb-5'
                 onClick={() => setNotification(false)}
               >
                 <div className="flex items-center justify-left cursor-pointer h-12 w-full">

@@ -28,9 +28,9 @@ const Card5 = () => {
     
     
     return (
-      <CardTemplate title="Applications" bgColor="#33373e" content={(
+      <CardTemplate title="Applications" bgColor="#33373e" height={450} content={(
         <div className='card-chart h-full relative flex items-center justify-center'>
-            <div style={{ width: 700 }}>
+            <div style={{ width: "100%" }}>
               <BarChart chartData={applicationData} />
             </div>
           

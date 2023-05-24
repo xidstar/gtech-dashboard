@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {TooltipComponent} from '@syncfusion/ej2-react-popups';
 import {BiShowAlt, BiHide} from 'react-icons/bi';
 
-const CardTemplate = ({ title, content, bgColor }) => {
+const CardTemplate = ({ title, content, bgColor, height }) => {
     const [showContent, setShowContent] = useState(true);
         
     const toggleContent = () => {
@@ -20,9 +20,9 @@ const CardTemplate = ({ title, content, bgColor }) => {
     }
     
     return (
-        <div id={`Card${title}`} className={`card flex flex-col justify-between text-gray-700 p-5 rounded-[30px] w-full
-         m-5 md:ml-10 md:mr-10 xl:ml-2 xl:mr-2 drop-shadow-2xl hover:cursor-pointer ${showContent ? "h-[450px]" : "h-auto"}`}
-        style={{backgroundColor: bgColor}}>
+        <div id={`Card${title}`} className={`card flex flex-col justify-between text-gray-700 p-5 rounded-[30px]
+         mt-5 mb-5 md:ml-10 md:mr-10 xl:ml-2 xl:mr-2 drop-shadow-2xl hover:cursor-pointer ${showContent ? "" : "!h-auto"}`}
+        style={{backgroundColor: bgColor, height}}>
             <div className="card-header flex justify-between pb-5 pl-5 pr-5">
                 <h3 className='font-bold'>{title}</h3>
                 <TooltipComponent content={showContent ? "Hide" : "Show"} position='TopCenter'>

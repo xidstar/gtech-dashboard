@@ -7,7 +7,7 @@ const Card2 = () => {
     <CardTemplate /> 
 
   return (
-    <CardTemplate title="Actions" bgColor="#d1c6e1" content={(
+    <CardTemplate title="Actions" bgColor="#bab7c0" height={450} content={(
         <div>
           {actionsData.map((item, index) => (
                 <button key={index} className='hover:bg-slate-200 hover:dark:text-gray-600 w-full pr-2 pl-2 rounded-xl'>

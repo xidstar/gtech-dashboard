@@ -2,9 +2,6 @@ import React from 'react'
 import { employeesData, employeesGrid } from '../data/dummy';
 import { Header } from '../components';
 import Area from './Charts/Area';
-import Pie from './Charts/Pie';
-import Bar from './Charts/Bar';
-import Stacked from './Charts/Stacked';
 import GeoMaps from './GeoMaps';
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Inject, Sort } from '@syncfusion/ej2-react-grids';
 import { actionsData, contextMenuItems, actionsGrid } from '../data/dummy';
@@ -33,17 +30,36 @@ const UserProfile = () => {
                 
                 const { Name, EmployeeID, Title, HireDate, ReportsTo, Country, EmployeeImage, Score } = user;
 
+                function getInitialAndLastName(Name) {
+                    // Split the full name into an array of words
+                    var words = Name.trim().split(' ');
+                  
+                    // Extract the first initial (first character of the first word)
+                    var initial = words[0].charAt(0);
+                  
+                    // Extract the last name (last word in the array)
+                    var lastName = words[words.length - 1];
+                  
+                    // Combine the initial and last name
+                    var result = initial + lastName;
+                  
+                    // Return the result
+                    return result;
+                  }
+
+                var initials = getInitialAndLastName(Name);
+
                 return (
                     <div key={index} className="profile mt-10 mb-10 lg:mt-0 lg:mb-0 lg:ml-5 lg:mr-5 p-10 bg-white dark:bg-slate-600
                     dark:text-white rounded-3xl flex flex-col justify-between h-auto drop-shadow-xl">
                         <div>
-                            <Header category="User" title={Name} />
+                            <Header title={initials} />
 
                             <div className='flex mb-10 flex-col sm:flex-row justify-between w-full max-w-md mx-auto'>
                                 <img className='rounded-full w-40 h-40' src={EmployeeImage} alt="" />
 
                                 <div className='info ml-2'>
-                                    <p className='font-bold text-2xl'>{Name}</p>
+                                    <p className='font-bold text-2xl mb-3'>{Name}</p>
                                     <p className='w-[150px] flex justify-between mb-3'>Employee#: <span className="ml-5">{EmployeeID}</span></p> 
                                     <p className='w-[150px] flex justify-between mb-3'>Title: <span className="ml-5">{Title}</span></p> 
                                     <p className='w-[150px] flex justify-between mb-3'>HireDate: <span className="ml-5">{HireDate}</span></p> 

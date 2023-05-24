@@ -46,6 +46,7 @@
   position: relative;
 }
 
+
 .card-chart p.value {
   position: absolute;
   left: 50%;
@@ -75,15 +76,21 @@
 }
 
 #CardActions, #CardSummary, #CardIndicators {
-  width: 30%;
+  width: 32%;
 }
 
 #CardWeb, #CardApplications {
   color: #ccc;
+  width: 100%;
 }
 
+#CardGeneral {
+  width: 100%;
+}
+
+
 @media(max-width: 768px) {
- .card-wrapper {
+ .highlights {
     margin-top: 100px;
   }
 }
@@ -93,6 +100,8 @@
     width: 100%;
   }
 }
+
+
 
 
 /* color-picker style  */
@@ -209,10 +218,57 @@
 
 /* Tables */
 
+table td.e-rowcell {
+  font-size: 14px !important;
+}
+
+table span.e-headertext {
+  font-size: 16px !important;
+}
+
 .dark .e-grid .e-table,
  .dark .e-grid .e-pager,
   .dark .e-pager .e-pagercontainer {
     background-color: rgb(100 116 139);
+}
+
+
+.card-reports .e-grid .e-table,
+.card-reports .e-grid .e-content,
+ .card-reports .e-grid .e-gridcontent,
+ .card-reports .e-grid .e-pager,
+  .card-reports .e-pager .e-pagercontainer {
+    background-color: transparent;
+}
+
+.card-reports td.e-rowcell {
+  color: #333 !important;
+}
+
+.card-reports .text-3xl {
+  color: #333 !important;
+  font-size: 18px;
+}
+
+.card-reports .e-grid {
+  border-radius: 10px;
+}
+
+.card-reports .e-grid .e-headercontent {
+  border-right-width: 0px !important;
+}
+
+.card-reports .e-grid .e-gridheader,
+.card-reports .e-grid .e-gridheader tr:first-child th {
+  background-color: #e6c683;
+  color: #000;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-reports .e-pager div.e-parentmsgbar .e-pagenomsg,
+.card-reports .e-pager div.e-parentmsgbar .e-pagecountmsg {
+  color: #000;
 }
 
 .dark .e-headercell, .dark .e-toolbar .e-toolbar-items,
@@ -249,6 +305,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+table tr.e-row {
+  min-height: 50px;
+}
+
 
 /* User Profile */
 
@@ -291,4 +352,30 @@
   .user-profile .network {
     width: 33%;
   }
+}
+
+/* Input */
+
+input#grid_1712249876_0_searchbar {
+  background-color: #fff !important;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+
+input, select, textarea{
+  color: #333 !important;
+}
+
+/* Calendar */
+
+.e-toolbar .e-popup-down-icon.e-icons {
+  color: #ccc;
+}
+
+.e-schedule .e-schedule-toolbar .e-hor-nav:hover > .e-icons {
+  color: #333;
+}
+
+.e-toolbar .e-toolbar-pop {
+  width: 100%;
 }

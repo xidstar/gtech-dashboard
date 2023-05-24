@@ -9,7 +9,7 @@ const Card1 = () => {
     <CardTemplate /> 
 
     return ( 
-      <CardTemplate title="Summary" bgColor="#faf6c5" content={(
+      <CardTemplate title="Summary" bgColor="#b8c2b7" height={450} content={(
         <div>
           {earningData.slice(0, 5).map((item, index) => (
               <button key={index} className={`hover:bg-slate-200 hover:dark:text-gray-600 w-full pr-2 pl-2 rounded-xl`} >

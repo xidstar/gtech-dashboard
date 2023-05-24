@@ -2,7 +2,6 @@ import React from 'react';
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Search, Edit, Inject, Toolbar, Sort } from '@syncfusion/ej2-react-grids';
 import { employeesData, employeesGrid } from '../data/dummy';
 import { Header } from '../components';
-import { pdfExport } from '@syncfusion/ej2/pivotview';
 
 
 const Employees = () => {

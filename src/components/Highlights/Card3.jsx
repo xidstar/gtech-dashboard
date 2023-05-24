@@ -33,9 +33,9 @@ const Card3 = () => {
     
     
     return (
-      <CardTemplate title="Web" bgColor="#33373e" content={(
+      <CardTemplate title="Web" bgColor="#33373e" height={450} content={(
         <div className='card-chart h-full relative flex items-center justify-center'>
-            <div style={{ width: "100%" }}>
+            <div style={{ width: "100%", maxWidth: 350 }}>
               <DoughnutChart chartData={webData} />
             </div>
           

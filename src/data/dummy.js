@@ -8,9 +8,13 @@ import { RiContactsLine,  RiEarthFill } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount, MdOutlineBookmarkRemove } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
+import { TbDots } from 'react-icons/tb';
 import { GiLouvrePyramid, GiBrokenShield } from 'react-icons/gi';
+import {GoTriangleRight} from 'react-icons/go';
 import { GrLocation } from 'react-icons/gr';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
+import { ImWarning, ImRedo2 } from 'react-icons/im';
+import {BiShowAlt, BiHide} from 'react-icons/bi';
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
@@ -36,12 +40,12 @@ export const GridOrderImage = (props) => {
   
 
   return (
-    <div className='!flex justify-center'>
+    <div className='!flex justify-center items-center'>
       { 
       
         shuffled.map((item, index) => { 
         return (
-          <div className='avatar-wrapper relative w-20 h-20'>
+          <div className='avatar-wrapper relative w-18 h-18'>
             <div className='icon absolute right-0 top-0'>{item.icon}</div>
             <img
               key={index}
@@ -52,7 +56,7 @@ export const GridOrderImage = (props) => {
           </div> 
           
         )})}
-        <div className='avatar-wrapper relative w-20 h-20'>
+        <div className='avatar-wrapper relative w-18 h-18'>
           <div className='icon absolute right-0 top-0'>
             {icon}
           </div>
@@ -256,7 +260,7 @@ const customerGridImage = (props) => (
 );
 
 const customerGridStatus = (props) => (
-  <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
+  <div className="flex gap-2 justify-center items-center text-gray-700 dark:text-slate-200 capitalize">
     <p style={{ background: props.StatusBg }} className="rounded-full h-3 w-3" />
     <p>{props.Status}</p>
   </div>
@@ -674,6 +678,10 @@ export const links = [
       {
         name: 'recent-poams',
         icon: <FaRegPaperPlane />,
+      },
+      {
+        name: 'incident-factors',
+        icon: <ImWarning />,
       },
     ],
   },
@@ -11312,3 +11320,286 @@ export const statesData = {
     },
   ],
 };
+
+const ToggleWatchButton = () => {
+  const [watch, setWatch] = useState(false);
+        
+  const toggleWatch = () => {
+      setWatch(!watch);
+  };
+  // setWatch(!watch);
+  
+  // console.log(watch);
+
+  return watch;
+}
+
+const IncidentWatch = () => { 
+
+  const ToggleContentButton = () => {
+      const [icon, setIcon] = useState(<BiShowAlt style={{fill: "#03b54a", fontSize: 30}} />);
+        
+      const handleClick = () => {
+          setIcon(icon.type === BiShowAlt ? <BiHide style={{ fontSize: 30}} /> : <BiShowAlt style={{fill: "#03b54a", fontSize: 30}} />);
+      };
+      
+      return <button onClick={handleClick}>{icon}</button>;
+  }
+
+  return (
+    <div className="flex items-center justify-center">
+      <button className='text-lg'>{ToggleContentButton()}</button>
+    </div>
+  )
+};
+
+const incidentMore = () => (
+  <div className="flex items-center justify-center">
+    <TbDots style={{ fontSize: 30}} />
+  </div>
+);
+
+export const incidentGrid = [
+  { field: 'category',
+    headerText: 'Category',
+    width: '150',
+    textAlign: 'Center' 
+  },
+  { field: 'description',
+    headerText: 'Description',
+    width: '150',
+    textAlign: 'Center',
+  },
+  { field: 'name',
+    headerText: 'Username',
+    width: '150',
+    textAlign: 'Center',
+  },
+  { field: 'watch',
+    headerText: 'Watch',
+    width: '120',
+    textAlign: 'Center',
+    template: IncidentWatch, 
+  },
+
+  { 
+    headerText: 'More',
+    width: '135',
+    textAlign: 'Center',
+    template: incidentMore, 
+  },
+];
+
+export const incidentFactors = [
+  {
+    name: "aanderson",
+    category: "Privacy",
+    description: "Keyword",
+    watch: true,
+  },
+  {
+    name: "aanderson",
+    category: "Privacy",
+    description: "Financial",
+    watch: true,
+  },
+  {
+    name: "aanderson",
+    category: "Privacy",
+    description: "Productivity",
+    watch: true,
+  },
+  {
+    name: "aanderson",
+    category: "Legal",
+    description: "Criminal",
+    watch: true,
+  },
+  {
+    name: "aanderson",
+    category: "Policy",
+    description: "System",
+    watch: true,
+  },
+  {
+    name: "areid",
+    category: "Privacy",
+    description: "Keyword",
+    watch: false,
+  },
+  {
+    name: "areid",
+    category: "Privacy",
+    description: "Financial",
+    watch: true,
+  },
+  {
+    name: "areid",
+    category: "Privacy",
+    description: "Productivity",
+    watch: false,
+  },
+  {
+    name: "areid",
+    category: "Legal",
+    description: "Criminal",
+    watch: true,
+  },
+  {
+    name: "areid",
+    category: "Policy",
+    description: "System",
+    watch: false,
+  },
+  {
+    name: "astevenson",
+    category: "Privacy",
+    description: "Keyword",
+    watch: false,
+  },
+  {
+    name: "astevenson",
+    category: "Privacy",
+    description: "Financial",
+    watch: true,
+  },
+  {
+    name: "astevenson",
+    category: "Privacy",
+    description: "Productivity",
+    watch: false,
+  },
+  {
+    name: "astevenson",
+    category: "Legal",
+    description: "Criminal",
+    watch: false,
+  },
+  {
+    name: "astevenson",
+    category: "Policy",
+    description: "System",
+    watch: false,
+  },
+]
+
+const reportsIndicator = () => { 
+
+  const ToggleContentButton = () => {
+      const [icon, setIcon] = useState(<GoTriangleRight style={{fill: "#03b54a", fontSize: 30}} />);
+        
+      const handleClick = () => {
+          setIcon(icon.type === GoTriangleRight ? <GoTriangleRight style={{ fill: "#333", fontSize: 30}} /> : <GoTriangleRight style={{fill: "#03b54a", fontSize: 30}} />);
+      };
+      
+      return <button onClick={handleClick}>{icon}</button>;
+  }
+
+  return (
+    <div className="flex items-center justify-center">
+      <button className='text-lg'>{ToggleContentButton()}</button>
+    </div>
+  )
+};
+
+const recordsIndicator = () => { 
+
+  const ToggleContentButton = () => {
+      const [icon, setIcon] = useState(<ImRedo2 style={{fill: "#03b54a", fontSize: 30}} />);
+        
+      const handleClick = () => {
+          setIcon(icon.type === ImRedo2 ? <ImRedo2 style={{ fill: "#333", fontSize: 30}} /> : <ImRedo2 style={{fill: "#03b54a", fontSize: 30}} />);
+      };
+      
+      return <button onClick={handleClick}>{icon}</button>;
+  }
+
+  return (
+    <div className="flex items-center justify-center">
+      <button className='text-lg'>{ToggleContentButton()}</button>
+    </div>
+  )
+};
+
+export const reportsGrid = [
+  { field: 'category',
+    headerText: 'Category',
+    width: '100',
+    textAlign: 'Center' 
+  },
+  { field: 'description',
+    headerText: 'Title',
+    width: '100',
+    textAlign: 'Center',
+  },
+  { 
+    width: '80',
+    textAlign: 'Center',
+    template: reportsIndicator, 
+  },
+];
+
+export const recordsGrid = [
+  { field: 'category',
+    headerText: 'Category',
+    width: '100',
+    textAlign: 'Center' 
+  },
+  { field: 'description',
+    headerText: 'Description',
+    width: '100',
+    textAlign: 'Center',
+  },
+  { field: 'indicator',
+    headerText: 'Indicator',
+    width: '80',
+    textAlign: 'Center',
+    template: recordsIndicator, 
+  },
+
+  { 
+    headerText: 'More',
+    width: '80',
+    textAlign: 'Center',
+    template: incidentMore, 
+  },
+];
+
+export const recordsCard = [
+  {
+    category: "Policy",
+    description: "HIPAA Enforcement Rule",
+  },
+  {
+    category: "Policy",
+    description: "Privacy Act of 1974",
+  },
+  {
+    category: "Training",
+    description: "Privacy Act of 1974",
+  },
+  {
+    category: "Policy",
+    description: "E-Government Act of 2002",
+  },
+  {
+    category: "Policy",
+    description: "Federal Records Act",
+  },
+  {
+    category: "Training",
+    description: "Handling PII",
+  },
+  {
+    category: "Training",
+    description: "Identifying PII",
+  },
+  {
+    category: "Policy",
+    description: "Intercept Elec Comms",
+  },
+  {
+    category: "Training",
+    description: "Access Controls",
+  },
+]
