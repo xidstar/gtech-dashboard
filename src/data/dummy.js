@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { AiOutlineCalendar, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiUser } from 'react-icons/fi';
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsCircleFill, BsDashLg, BsFlagFill } from 'react-icons/bs';
@@ -30,85 +30,117 @@ import product7 from './product7.jpg';
 import product8 from './product8.jpg';
 import { useStateContext } from '../contexts/ContextProvider';
 
-export const GridOrderImage = (props) => {
-  const {icon, setIcon} = useStateContext();
+
+export const GridApproversImage = (props) => {
+  const {userIcon, setUserIcon} = useStateContext();
+
   let unshuffled = props.ProductImage;
   let shuffled = unshuffled
     .map(value => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value)
-  
 
+    // console.log(unshuffled)
+
+ 
   return (
     <div className='!flex justify-center items-center'>
       { 
       
-        shuffled.map((item, index) => { 
+      unshuffled.map((user, index) => { 
         return (
-          <div className='avatar-wrapper relative w-18 h-18'>
-            <div className='icon absolute right-0 top-0'>{item.icon}</div>
+          <div key={index} className='avatar-wrapper relative w-18 h-18'>
+            <div className='icon absolute right-0 top-0'>{user.id === 5 ? userIcon : user.icon}</div>
             <img
               key={index}
               className="rounded-full h-16 md:ml-3 max-w-8"
-              src={item.image}
+              src={user.image}
               alt="approver"
             />
           </div> 
           
         )})}
-        <div className='avatar-wrapper relative w-18 h-18'>
-          <div className='icon absolute right-0 top-0'>
-            {icon}
-          </div>
-              <img 
-                src={avatar5}
-                className="rounded-full h-16 md:ml-3 max-w-8" 
-                alt='' />
-          </div>
     </div>
   )};
 
-  export const ToggleAction = () => {
-    const {icon, setIcon} = useStateContext();
-    {setIcon(<FaCheckCircle className='fill-green-600 text-lg' />)}
-  }
+  const ActionButton = (props) => {
+    const [btnApproveText, setBtnApproveText] = useState('Approve');
+    const [btnRejectText, setBtnRejectText] = useState('Reject');
+    const {userIcon, setUserIcon} = useStateContext();
+
+
+    const handleApproveClick = () => {
+      setBtnApproveText('Approved!');
+      setBtnRejectText('Reject');
+      setUserIcon(<FaCheckCircle className='fill-green-600 text-lg' />)
+    };
+      
+    const handleRejectClick = () => {
+      setBtnRejectText('Rejected!');
+      setBtnApproveText('Approve')
+      setUserIcon(<BsFlagFill className='fill-red-600 text-lg' />)
+    };
+    
+    return (
+      <>
+        <button  
+          style={{ 
+            background: "#f7f7f7", 
+            marginRight: "10px", 
+            padding: "7px 20px", 
+            borderRadius: "5px", 
+            width: "120px", 
+          }} 
+          onClick={handleRejectClick}>
+            {btnRejectText}
+        </button>
+
+        <button 
+          style={{ 
+            background: "#03b54a", 
+            color: "#fff", 
+            padding: "7px 20px", 
+            borderRadius: "5px", 
+            width: "120px", 
+          }} 
+          onClick={handleApproveClick}>
+            {btnApproveText}
+        </button>
+      </>
+    )
+}
 
 export const gridAction = (props) => (
-  <div className='flex'>
-    <button
-        type="button"
-        style={{ background: "#f7f7f7"}}
-        className="text-black py-1 px-2 w-[100px] rounded-md text-lg"
-      >
-        Reject
-    </button>
-    <button
-        type="button"
-        style={{ background: "#03b54a", color: "#fff"}}
-        className="text-black py-2 px-3 ml-2 w-[100px] rounded-md text-lg hover:bg-green-500"
-        onClick={() => {}}
-      >
-        Approve
-    </button>
+  <div className='flex text-black'>
+    {ActionButton()}
   </div>
   
 );
 
 export const avatars = [
   {
+    id: 1,
     image: avatar2,
     icon: <BsFlagFill className='fill-red-600 text-lg' />,
   },
   {
+    id: 2,
     image:avatar3,
     icon: <FaCheckCircle className='fill-green-600 text-lg' />,
   },
   {
+    id: 3,
     image: avatar2,
     icon: <FaCheckCircle className='fill-green-600 text-lg' />,
   },
   {
+    id: 4,
     image: avatar4,
+    icon: <BsFlagFill className='fill-red-600 text-lg' />,
+  },
+  {
+    id: 5,
+    image: avatar5,
     icon: <BsFlagFill className='fill-red-600 text-lg' />,
   },
 ]
@@ -1165,7 +1197,7 @@ export const actionsGrid = [
     template: gridOrderStatus,
     field: 'OrderItems',
     textAlign: 'Center',
-    width: '120',
+    width: '100',
   },
   // { field: 'ActionID',
   //   headerText: 'Action ID',
@@ -1174,7 +1206,7 @@ export const actionsGrid = [
   // },
   {
     headerText: 'Approvers',
-    template: GridOrderImage,
+    template: GridApproversImage,
     textAlign: 'Center',
     width: '300',
   },
@@ -1182,59 +1214,59 @@ export const actionsGrid = [
     headerText: 'Action',
     template: gridAction,
     textAlign: 'Center',
-    width: '150',
+    width: '200',
   },
   
 ]
 
-export const ordersGrid = [
-  {
-    headerText: 'Image',
-    template: GridOrderImage,
-    textAlign: 'Center',
-    width: '100',
-  },
-  {
-    field: 'OrderItems',
-    headerText: 'Item',
-    width: '150',
-    editType: 'dropdownedit',
-    textAlign: 'Center',
-  },
-  { field: 'CustomerName',
-    headerText: 'Customer Name',
-    width: '150',
-    textAlign: 'Center',
-  },
-  {
-    field: 'TotalAmount',
-    headerText: 'Total Amount',
-    format: 'C2',
-    textAlign: 'Center',
-    editType: 'numericedit',
-    width: '150',
-  },
-  {
-    headerText: 'Status',
-    template: gridOrderStatus,
-    field: 'OrderItems',
-    textAlign: 'Center',
-    width: '120',
-  },
-  {
-    field: 'OrderID',
-    headerText: 'Order ID',
-    width: '120',
-    textAlign: 'Center',
-  },
+// export const ordersGrid = [
+//   {
+//     headerText: 'Image',
+//     template: GridOrderImage,
+//     textAlign: 'Center',
+//     width: '100',
+//   },
+//   {
+//     field: 'OrderItems',
+//     headerText: 'Item',
+//     width: '150',
+//     editType: 'dropdownedit',
+//     textAlign: 'Center',
+//   },
+//   { field: 'CustomerName',
+//     headerText: 'Customer Name',
+//     width: '150',
+//     textAlign: 'Center',
+//   },
+//   {
+//     field: 'TotalAmount',
+//     headerText: 'Total Amount',
+//     format: 'C2',
+//     textAlign: 'Center',
+//     editType: 'numericedit',
+//     width: '150',
+//   },
+//   {
+//     headerText: 'Status',
+//     template: gridOrderStatus,
+//     field: 'OrderItems',
+//     textAlign: 'Center',
+//     width: '120',
+//   },
+//   {
+//     field: 'OrderID',
+//     headerText: 'Order ID',
+//     width: '120',
+//     textAlign: 'Center',
+//   },
 
-  {
-    field: 'Location',
-    headerText: 'Location',
-    width: '150',
-    textAlign: 'Center',
-  },
-];
+//   {
+//     field: 'Location',
+//     headerText: 'Location',
+//     width: '150',
+//     textAlign: 'Center',
+//   },
+// ];
 
 export const customersData = [
   {
@@ -11486,13 +11518,13 @@ export const incidentFactors = [
 const reportsIndicator = () => { 
 
   const ToggleContentButton = () => {
-      const [icon, setIcon] = useState(<GoTriangleRight style={{fill: "#03b54a", fontSize: 30}} />);
+    const [isFilled, setIsFilled] = useState(true);
         
-      const handleClick = () => {
-          setIcon(icon.type === GoTriangleRight ? <GoTriangleRight style={{ fill: "#333", fontSize: 30}} /> : <GoTriangleRight style={{fill: "#03b54a", fontSize: 30}} />);
-      };
+    const handleClick = () => {
+      setIsFilled(!isFilled);
+    };
       
-      return <button onClick={handleClick}>{icon}</button>;
+      return <button onClick={handleClick}><GoTriangleRight style={{fill: `${isFilled ? "#03b54a" : "#333"}`, fontSize: 30}} /></button>;
   }
 
   return (
@@ -11505,13 +11537,13 @@ const reportsIndicator = () => {
 const recordsIndicator = () => { 
 
   const ToggleContentButton = () => {
-      const [icon, setIcon] = useState(<ImRedo2 style={{fill: "#03b54a", fontSize: 30}} />);
+      const [isFilled, setIsFilled] = useState(true);
         
       const handleClick = () => {
-          setIcon(icon.type === ImRedo2 ? <ImRedo2 style={{ fill: "#333", fontSize: 30}} /> : <ImRedo2 style={{fill: "#03b54a", fontSize: 30}} />);
+        setIsFilled(!isFilled);
       };
       
-      return <button onClick={handleClick}>{icon}</button>;
+      return <button onClick={handleClick}><ImRedo2 style={{fill: `${isFilled ? "#03b54a" : "#333"}`, fontSize: 30}} /></button>;
   }
 
   return (

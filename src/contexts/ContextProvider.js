@@ -23,7 +23,7 @@ export const ContextProvider = ({children}) => {
     const [profile, setProfile] = useState(false);
     
     const [show, setShow] = useState(true);
-    const [icon, setIcon] = useState(<BsFlagFill className='fill-red-600 text-lg' />);
+    const [userIcon, setUserIcon] = useState();
 
     const setColor = (color) => {
         setCurrentColor(color); 
@@ -75,8 +75,8 @@ export const ContextProvider = ({children}) => {
                 setShow,
                 profile,
                 setProfile,
-                icon,
-                setIcon,
+                userIcon,
+                setUserIcon,
             }}>
             {children}
         </StateContext.Provider>

@@ -379,3 +379,9 @@ input, select, textarea{
 .e-toolbar .e-toolbar-pop {
   width: 100%;
 }
+
+/* Actions */
+
+/* .actions-table tbody .e-row > .e-rowcell ~ td:hover {
+  background-color: transparent !important;
+} */

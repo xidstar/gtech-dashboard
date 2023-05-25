@@ -54,7 +54,6 @@ const Sidebar = () => {
                 </p>
                 <div className='nav-link w-100 dark:text-gray-300 '>
                   {item.links.map((link) => (
-                    <>
                     <NavLink to={`/${link.name}`} key={link.name} 
                       onClick={handleCloseSidebar}
                       style={({isActive}) => ({ color: isActive ? currentColor : ''})}
@@ -63,9 +62,6 @@ const Sidebar = () => {
                        <span className='capitalize m-3'>{link.name}</span> 
                        <span className='underline'></span>
                     </NavLink>
-                    
-                    {/* <span className='underline'></span> */}
-                    </>
                   ))}
                 </div>
               </div>

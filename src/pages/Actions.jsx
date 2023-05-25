@@ -30,7 +30,7 @@ const Actions = () => {
 
   return (
    
-    <div className='mt-32 md:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
+    <div className='actions-table mt-32 md:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
      w-11/12 mr-auto ml-auto shadow-xl'>
       <Header category="Page" title="Actions" />
       <GridComponent 
