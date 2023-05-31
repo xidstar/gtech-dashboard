@@ -382,24 +382,17 @@ input, select, textarea{
 
 /* Actions */
 
-/* .actions-table tbody .e-row > .e-rowcell ~ td:hover {
-  background-color: transparent !important;
-} */
 
-.actions-table table {
-  width: 100%;
-  border: 2px solid #ccc;
-}
 
 .actions-table table thead tr th {
   padding: 10px;
-  border-bottom: 2px solid #ccc;
-  background-color: #475569;
-  color: #ccc;
+  border-bottom: 1px solid #ccc;
+  /* background-color: #475569; */
+  /* color: #ccc; */
 }
 
 .actions-table table tbody tr {
-  background-color: #64748b;
+  /* background-color: #64748b; */
   border-bottom: 1px solid #ccc;
 }
 
@@ -407,6 +400,15 @@ input, select, textarea{
   width: 25%;
   padding: 20px;
   text-align: center;
+}
+
+.actions-table table tbody tr td, 
+.actions-table table tbody tr td p {
+  color: #000;
+}
+
+.dark .actions-table table tbody tr td, 
+.dark .actions-table table tbody tr td p {
   color: #ccc;
 }
 

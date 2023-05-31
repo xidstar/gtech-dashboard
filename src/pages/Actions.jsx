@@ -100,18 +100,18 @@ const Actions = () => {
         <div>
           
         </div>
-        <table>
+        <table className='dark:bg-secondary-dark-bg w-full border-2 border-slate-200'>
           <thead>
-            <tr>
-              <th>Title</th>
-              <th>Status</th>
-              <th className='approver-title'>Approvers</th>
-              <th>Action</th>
+            <tr className='dark:text-slate-200'>
+              <th className=' bg-gray-100 dark:bg-slate-700'>Title</th>
+              <th className=' bg-gray-100 dark:bg-slate-700'>Status</th>
+              <th className=' bg-gray-100 dark:bg-slate-700 approver-title'>Approvers</th>
+              <th className=' bg-gray-100 dark:bg-slate-700'>Action</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.id}>
+              <tr key={row.id} className='bg-white dark:bg-slate-600'>
                 <td>{row.title}</td>
                 <td>
                   <p className={`rounded-xl p-1 text-slate-200 ${row.status === "approved" ? 'bg-green-600' : null} ${row.status === "rejected" ? 'bg-red-500' : null}`}>{row.status}</p>
@@ -123,7 +123,7 @@ const Actions = () => {
                 </td>
                 <td>
                   <button  
-                    className={` ${row.status === "rejected" ? 'bg-red-600 text-slate-200' : "bg-[#f7f7f7] text-black"}`}
+                    className={` ${row.status === "rejected" ? 'bg-red-600 text-slate-200' : "bg-slate-200 text-black"}`}
                     style={{ 
                       margin: "5px", 
                       padding: "7px 20px", 
@@ -153,7 +153,7 @@ const Actions = () => {
 
       
 
-      <div className="chat w-full rounded-xl dark:text-slate-200 mt-5 p-5 bg-gray-200 dark:bg-slate-700">
+      <div className="chat w-full rounded-xl dark:text-slate-200 mt-5 p-5 bg-slate-200 dark:bg-slate-700">
         <div className="top flex mb-3 text-slate-400">
           <p className=''>George Michael</p>
           <p className='pl-5'>11:24:19 AM</p>
