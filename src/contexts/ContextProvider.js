@@ -1,6 +1,4 @@
 import React, {createContext, useContext, useState} from 'react';
-import { BsFlagFill } from 'react-icons/bs';
-import { FaCheckCircle } from 'react-icons/fa';
 
 const StateContext = createContext();
 
@@ -23,7 +21,13 @@ export const ContextProvider = ({children}) => {
     const [profile, setProfile] = useState(false);
     
     const [show, setShow] = useState(true);
-    const [userIcon, setUserIcon] = useState();
+    const [rows, setRows] = useState([
+        { id: 10248, title: 'Cisco Switch Catalyst 9400', status: 'pending...', approvers: '', actionApprove: "Approve", actionReject: "Reject" },
+        { id: 345653, title: 'McAfee April 2023 Patch', status: 'pending...', approvers: '', actionApprove: "Approve", actionReject: "Reject" },
+        { id: 390457, title: 'Oracle March 2022 Patch', status: 'pending...', approvers: '', actionApprove: "Approve", actionReject: "Reject" },
+        { id: 946580, title: 'Deploy Firewall', status: 'pending...', approvers: '', actionApprove: "Approve", actionReject: "Reject" },
+        { id: 6545378, title: 'Import Python Flask', status: 'pending...', approvers: '', actionApprove: "Approve", actionReject: "Reject" },
+      ]);
 
     const setColor = (color) => {
         setCurrentColor(color); 
@@ -75,8 +79,8 @@ export const ContextProvider = ({children}) => {
                 setShow,
                 profile,
                 setProfile,
-                userIcon,
-                setUserIcon,
+                rows,
+                setRows
             }}>
             {children}
         </StateContext.Provider>

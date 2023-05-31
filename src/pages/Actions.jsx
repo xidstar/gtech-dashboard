@@ -1,15 +1,60 @@
 import React, { useState} from 'react';
-import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Sort, ContextMenu, Filter, Page, ExcelExport, PdfExport, Edit, Inject } from '@syncfusion/ej2-react-grids';
-import { actionsData, contextMenuItems, actionsGrid } from '../data/dummy';
 import { Header } from '../components';
 import {BsFillChatDotsFill} from 'react-icons/bs';
 import { useStateContext } from '../contexts/ContextProvider';
+import { FaCheckCircle } from 'react-icons/fa';
+import { BsFlagFill } from 'react-icons/bs';
+import { avatars } from '../data/dummy';
+import avatar5 from '../data/avatar5.png';
+
 
 
 const Actions = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const {currentColor} = useStateContext();
+
+  const {rows, setRows} = useStateContext();
+
+  const GridApproversImage = () => {
+  
+    let unshuffled = avatars;
+    // let shuffled = unshuffled
+    //   .map(value => ({ value, sort: Math.random() }))
+    //   .sort((a, b) => a.sort - b.sort)
+    //   .map(({ value }) => value)
+  
+   
+    return (
+      <div className='flex justify-end items-center relative'>
+        { 
+          unshuffled.map((user, index) => { 
+            return (
+                <div key={index} className='avatar-wrapper hidden lg:flex relative w-18 h-18'>
+                  <div className='icon absolute right-0 top-0'>
+                    {user.icon}
+                  </div> 
+                  <img
+                    key={index}
+                    className="rounded-full p-1 w-16 h-auto "
+                    src={user.image}
+                    alt="approver"
+                  />
+                </div> 
+              
+            )})
+          }
+          <div className='avatar-wrapper w-18 h-18 relative hidden sm:block'>
+            <img  
+              src={avatar5} 
+              className="rounded-full p-1 w-16 min-w-8 h-auto"
+              alt="approver"
+            />
+          </div>
+          
+      </div>
+    )};
+  
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -28,29 +73,91 @@ const Actions = () => {
     }
   };
 
+  const handleApproveClick = (id) => {
+    setRows((prevRows) =>
+      prevRows.map((row) =>
+        row.id === id ? { ...row, status: "approved",  actionApprove: "Approved!", actionReject: "Reject" } : row
+      )
+    );
+    
+  };
+    
+  const handleRejectClick = (id) => {
+    setRows((prevRows) =>
+      prevRows.map((row) =>
+      row.id === id ? { ...row, status: "rejected", actionApprove: "Approve", actionReject: "Rejected!" } : row
+      )
+    );
+  };
+
   return (
    
     <div className='actions-table mt-32 md:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
      w-11/12 mr-auto ml-auto shadow-xl'>
       <Header category="Page" title="Actions" />
-      <GridComponent 
-        id="gridcomp"
-        dataSource={actionsData}
-        allowPaging
-        allowSorting
-      >
-        <ColumnsDirective  style={{display: "flex"}}>
-          {actionsGrid.map((item, index) => (
-            <ColumnDirective key={index} {...item} />
-          ))}
-        </ColumnsDirective>
-        <Inject services={[Resize, Sort, Filter, ContextMenu, Page, ExcelExport, Edit, PdfExport]} />
-      </GridComponent>
+
+      <div className='actions-table'>
+        <div>
+          
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Status</th>
+              <th className='approver-title'>Approvers</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.id}>
+                <td>{row.title}</td>
+                <td>
+                  <p className={`rounded-xl p-1 text-slate-200 ${row.status === "approved" ? 'bg-green-600' : null} ${row.status === "rejected" ? 'bg-red-500' : null}`}>{row.status}</p>
+                </td>
+                <td className='approvers relative'>
+                  {GridApproversImage()}
+                  {row.status === 'approved' ? <FaCheckCircle className='fill-green-600 text-lg absolute right-5 top-5 approver-icon' /> : null}
+                  {row.status === 'rejected' ? <BsFlagFill className='fill-red-500 text-lg absolute right-5 top-5 approver-icon' /> : null}
+                </td>
+                <td>
+                  <button  
+                    className={` ${row.status === "rejected" ? 'bg-red-600 text-slate-200' : "bg-[#f7f7f7] text-black"}`}
+                    style={{ 
+                      margin: "5px", 
+                      padding: "7px 20px", 
+                      borderRadius: "5px", 
+                      width: "120px", 
+                    }} 
+                    onClick={() => handleRejectClick(row.id)}>
+                      {row.actionReject}
+                  </button>
+                  <button 
+                    className={` ${row.status === "approved" ? 'bg-green-600 text-slate-200' : "bg-green-300 text-black"}`}
+                    style={{  
+                      margin: "5px",
+                      padding: "7px 20px", 
+                      borderRadius: "5px", 
+                      width: "120px", 
+                    }} 
+                    onClick={() => handleApproveClick(row.id)}>
+                      {row.actionApprove}
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      
+
       <div className="chat w-full rounded-xl dark:text-slate-200 mt-5 p-5 bg-gray-200 dark:bg-slate-700">
         <div className="top flex mb-3 text-slate-400">
           <p className=''>George Michael</p>
           <p className='pl-5'>11:24:19 AM</p>
-          <p className='pl-5'>Changed status to - <span className="text-red-500 font-bold">Denied</span></p>
+          <p className='pl-5'>Changed status to - <span className="text-red-500 font-bold">Rejected</span></p>
         </div>
         <div className="message dark:text-slate-200">
           <p>Improper Input Validation vulnerability in flask that can result in Large amount of memory usage

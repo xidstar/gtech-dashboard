@@ -31,6 +31,7 @@ const Sidebar = () => {
             <Link to='/' onClick={handleCloseSidebar} className="items-center gap-3 p-3 h-20 w-5/6 ml-0 flex text-xl
              font-extrabold tracking-tight">
               <img 
+                alt='Insider Threat Portal'
                 className='rounded-full w-8 h-8'
                 style={{width: '50px', height: 'auto'}}
                 src={logo} /><span>Insider Threat Portal</span>

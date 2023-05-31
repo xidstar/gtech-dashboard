@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { AiOutlineCalendar, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiUser } from 'react-icons/fi';
 import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsCircleFill, BsDashLg, BsFlagFill } from 'react-icons/bs';
@@ -19,7 +19,6 @@ import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
 import avatar4 from './avatar4.jpg';
-import avatar5 from './avatar5.png';
 import product1 from './product1.jpg';
 import product2 from './product2.jpg';
 import product3 from './product3.jpg';
@@ -27,122 +26,40 @@ import product4 from './product4.jpg';
 import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
-import product8 from './product8.jpg';
-import { useStateContext } from '../contexts/ContextProvider';
 
 
-export const GridApproversImage = (props) => {
-  const {userIcon, setUserIcon} = useStateContext();
-
-  let unshuffled = props.ProductImage;
-  let shuffled = unshuffled
-    .map(value => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value)
-
-    // console.log(unshuffled)
-
- 
-  return (
-    <div className='!flex justify-center items-center'>
-      { 
-      
-      unshuffled.map((user, index) => { 
-        return (
-          <div key={index} className='avatar-wrapper relative w-18 h-18'>
-            <div className='icon absolute right-0 top-0'>{user.id === 5 ? userIcon : user.icon}</div>
-            <img
-              key={index}
-              className="rounded-full h-16 md:ml-3 max-w-8"
-              src={user.image}
-              alt="approver"
-            />
-          </div> 
-          
-        )})}
-    </div>
-  )};
-
-  const ActionButton = (props) => {
-    const [btnApproveText, setBtnApproveText] = useState('Approve');
-    const [btnRejectText, setBtnRejectText] = useState('Reject');
-    const {userIcon, setUserIcon} = useStateContext();
-
-
-    const handleApproveClick = () => {
-      setBtnApproveText('Approved!');
-      setBtnRejectText('Reject');
-      setUserIcon(<FaCheckCircle className='fill-green-600 text-lg' />)
-    };
-      
-    const handleRejectClick = () => {
-      setBtnRejectText('Rejected!');
-      setBtnApproveText('Approve')
-      setUserIcon(<BsFlagFill className='fill-red-600 text-lg' />)
-    };
-    
-    return (
-      <>
-        <button  
-          style={{ 
-            background: "#f7f7f7", 
-            marginRight: "10px", 
-            padding: "7px 20px", 
-            borderRadius: "5px", 
-            width: "120px", 
-          }} 
-          onClick={handleRejectClick}>
-            {btnRejectText}
-        </button>
-
-        <button 
-          style={{ 
-            background: "#03b54a", 
-            color: "#fff", 
-            padding: "7px 20px", 
-            borderRadius: "5px", 
-            width: "120px", 
-          }} 
-          onClick={handleApproveClick}>
-            {btnApproveText}
-        </button>
-      </>
-    )
-}
-
-export const gridAction = (props) => (
-  <div className='flex text-black'>
-    {ActionButton()}
-  </div>
-  
-);
 
 export const avatars = [
   {
-    id: 1,
+    id: 0,
     image: avatar2,
     icon: <BsFlagFill className='fill-red-600 text-lg' />,
+    ActionID: 10248,
+  },
+  {
+    id: 1,
+    image:avatar3,
+    icon: <FaCheckCircle className='fill-green-600 text-lg' />,
+    ActionID: 345653,
   },
   {
     id: 2,
-    image:avatar3,
+    image: avatar2,
     icon: <FaCheckCircle className='fill-green-600 text-lg' />,
+    ActionID: 390457,
   },
   {
     id: 3,
-    image: avatar2,
-    icon: <FaCheckCircle className='fill-green-600 text-lg' />,
-  },
-  {
-    id: 4,
     image: avatar4,
     icon: <BsFlagFill className='fill-red-600 text-lg' />,
+    ActionID: 946580,
   },
-  {
-    id: 5,
-    image: avatar5,
-    icon: <BsFlagFill className='fill-red-600 text-lg' />,
-  },
+  // {
+  //   id: 4,
+  //   image: avatar5,
+  //   icon: <BsFlagFill className='fill-red-600 text-lg' />,
+  //   ActionID: 6545378,
+  // },
 ]
 
 
@@ -1206,13 +1123,11 @@ export const actionsGrid = [
   // },
   {
     headerText: 'Approvers',
-    template: GridApproversImage,
     textAlign: 'Center',
     width: '300',
   },
   {
     headerText: 'Action',
-    template: gridAction,
     textAlign: 'Center',
     width: '200',
   },
@@ -11353,18 +11268,6 @@ export const statesData = {
   ],
 };
 
-const ToggleWatchButton = () => {
-  const [watch, setWatch] = useState(false);
-        
-  const toggleWatch = () => {
-      setWatch(!watch);
-  };
-  // setWatch(!watch);
-  
-  // console.log(watch);
-
-  return watch;
-}
 
 const IncidentWatch = () => { 
 
