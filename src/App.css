@@ -333,6 +333,18 @@ table tr.e-row {
   width: 90%;
 }
 
+#CardApplications, 
+#CardWeb {
+  background-color: #f6f6f9;
+  color:#000
+}
+
+.dark #CardApplications, 
+.dark #CardWeb {
+  background-color: #33373e;
+  color: #ccc;
+}
+
 @media(max-width: 1600px) {
   .user-profile .web,
   .user-profile .profile,
@@ -444,4 +456,10 @@ input, select, textarea{
   .actions-table table tbody tr td .approver-icon {
     top: 28%;
   }
+}
+
+/* Geo Maps */
+
+.btn-expand {
+  z-index: 1000;
 }

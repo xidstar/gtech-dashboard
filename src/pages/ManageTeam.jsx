@@ -3,11 +3,11 @@ import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inje
 import { customersData, customersGrid } from '../data/dummy';
 import { Header } from '../components';
 
-const Users = () => {
+const ManageTeam = () => {
   return (
     <div className='mt-32 md:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
     w-11/12 mr-auto ml-auto shadow-xl'>
-      <Header category="Page" title="Users" />
+      <Header category="Page" title="Manage Team" />
       <GridComponent 
         dataSource={customersData}
         allowPaging
@@ -27,4 +27,4 @@ const Users = () => {
   )
 }
 
-export default Users
+export default ManageTeam

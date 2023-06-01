@@ -114,7 +114,7 @@ const Actions = () => {
               <tr key={row.id} className='bg-white dark:bg-slate-600'>
                 <td>{row.title}</td>
                 <td>
-                  <p className={`rounded-xl p-1 text-slate-200 ${row.status === "approved" ? 'bg-green-600' : null} ${row.status === "rejected" ? 'bg-red-500' : null}`}>{row.status}</p>
+                  <p className={`rounded-xl p-1 max-w-[120px] mx-auto !text-slate-200 ${row.status === "approved" ? 'bg-green-600' : null} ${row.status === "rejected" ? 'bg-red-500' : null}`}>{row.status}</p>
                 </td>
                 <td className='approvers relative'>
                   {GridApproversImage()}
@@ -123,7 +123,7 @@ const Actions = () => {
                 </td>
                 <td>
                   <button  
-                    className={` ${row.status === "rejected" ? 'bg-red-600 text-slate-200' : "bg-slate-200 text-black"}`}
+                    className={` ${row.status === "rejected" ? 'bg-red-500 text-slate-200' : "bg-slate-200 text-black"}`}
                     style={{ 
                       margin: "5px", 
                       padding: "7px 20px", 

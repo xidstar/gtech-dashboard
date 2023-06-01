@@ -4,17 +4,22 @@ import { employeesData, employeesGrid } from '../data/dummy';
 import { Header } from '../components';
 
 
-const Employees = () => {
+const Team = () => {
+  function btnClick() {
+    window.location.href="/user-profile";
+  } 
+  
   return (
     <div className='mt-32 md:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
-    w-11/12 mr-auto ml-auto shadow-xl'>
-      <Header category="Page" title="Employees" />
+    w-11/12 mr-auto ml-auto shadow-xl cursor-pointer'>
+      <Header category="Page" title="Team" />
       <GridComponent 
         dataSource={employeesData}
         allowPaging
         allowSorting
         toolbar={['Search']}
         width="auto"
+        
       >
         <ColumnsDirective>
           {employeesGrid.map((item, index) => (
@@ -27,4 +32,4 @@ const Employees = () => {
   )
 }
 
-export default Employees
+export default Team

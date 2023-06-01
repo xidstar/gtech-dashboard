@@ -4,7 +4,8 @@ import { Header } from '../components';
 import Area from './Charts/Area';
 import GeoMaps from './GeoMaps';
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Inject, Sort } from '@syncfusion/ej2-react-grids';
-import { actionsData, contextMenuItems, actionsGrid } from '../data/dummy';
+import { actionsData, actionsGrid } from '../data/dummy';
+import {HiOutlineArrowsExpand} from 'react-icons/hi'
 
 import Card3 from '../components/Highlights/Card3';
 import Card5 from '../components/Highlights/Card5';
@@ -12,12 +13,16 @@ import Card5 from '../components/Highlights/Card5';
 
 
 const UserProfile = () => {
+    function btnClick() {
+        window.location.href="/geo-maps";
+    } 
+
   return (
     <div className='user-profile mt-32 lg:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
      mr-auto ml-auto shadow-xl xl:h-5/6'>
       <Header category="Page" title="User Profile" />
         <div className="profile-wrapper flex flex-col justify-center">
-            <div className="web rounded-3xl w-full dark:bg-slate-600">
+            <div className="web rounded-3xl w-full dark:bg-slate-600 drop-shadow-2xl">
                 <div className="p-5 pt-0 flex justify-center">
                     <Card5 />
                 </div>
@@ -51,8 +56,8 @@ const UserProfile = () => {
 
                 return (
                     <div key={index} className="profile mt-10 mb-10 lg:mt-0 lg:mb-0 lg:ml-5 lg:mr-5 p-10 bg-white dark:bg-slate-600
-                    dark:text-white rounded-3xl flex flex-col justify-between h-auto drop-shadow-xl">
-                        <div>
+                    dark:text-white rounded-3xl flex flex-col justify-between h-auto  drop-shadow-2xl">
+                        <div className=' drop-shadow-2xl'>
                             <Header title={initials} />
 
                             <div className='flex mb-10 flex-col sm:flex-row justify-between w-full max-w-md mx-auto'>
@@ -75,21 +80,23 @@ const UserProfile = () => {
                             hover:cursor-pointer'>{Score}</button>
                         </div>
                         
-                        <div className='chart h-3/6 overflow-hidden rounded-3xl'>
-                            <GeoMaps style={{height: "400px !important"}} />
+                        <div className='chart h-3/6 overflow-hidden rounded-3xl drop-shadow-2xl relative'>
+                            
+                            <GeoMaps style={{height: "400px !important"}} className='z-0' />
+                            <button className='btn-expand absolute top-5 right-5 text-black text-3xl hover:text-4xl' onClick={btnClick}><HiOutlineArrowsExpand /></button>
                         </div>
                         
                     </div>
                 )
             } )}  
 
-            <div className="network rounded-3xl w-full dark:bg-slate-600  drop-shadow-2xl">
+            <div className="network rounded-3xl w-full dark:bg-slate-600 ">
                 <div className="bg-white rounded-3xl dark:bg-slate-600 pb-5">
                     <div className="chart network-activity">
                         <Area />
                     </div>
                     <div className="recent-alerts m-5 lg:m-5 dark:bg-secondary-dark-bg
-                        dark:text-white">
+                        dark:text-white drop-shadow-2xl">
                         <GridComponent 
                             id="gridcomp"
                             dataSource={actionsData}

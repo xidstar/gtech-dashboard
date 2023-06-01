@@ -625,7 +625,7 @@ export const links = [
         icon: <GiBrokenShield />,
       },
       {
-        name: 'recent-poams',
+        name: 'recent-POA&Ms',
         icon: <FaRegPaperPlane />,
       },
       {
@@ -647,11 +647,11 @@ export const links = [
         icon: <FiEdit />,
       },
       {
-        name: 'employees',
+        name: 'team',
         icon: <HiOutlineUsers />,
       },
       {
-        name: 'users',
+        name: 'manage-team',
         icon: <RiContactsLine />,
       },
       {
@@ -820,6 +820,29 @@ export const chatData = [
     chat: false,
   },
 ];
+
+export const summaryData = [
+  {
+    title: 'actions',
+    amount: 39,
+  },
+  {
+    title: 'indicators',
+    amount: 14,
+  },
+  {
+    title: 'highest-risk-exposures',
+    amount: 8,
+  },
+  {
+    title: 'recent-POA&Ms',
+    amount: 28,
+  },
+  {
+    title: 'incident-factors',
+    amount: 4,
+  },
+]
 
 export const earningData = [
   {
@@ -2036,7 +2059,7 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    Score: 600,
+    Score: 1000,
     EmployeeImage:
       avatar4,
   },

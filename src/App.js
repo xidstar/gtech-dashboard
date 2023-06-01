@@ -1,10 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {FiSettings} from 'react-icons/fi';
-import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import {Navbar, Footer, Sidebar, ThemeSettings, Notification, Profile} from './components';
-import {Highlights, Editor, Employees, Kanban, Actions, Users, ColorPicker, Calendar,
+import {Highlights, Editor, Team, Kanban, Actions, ManageTeam, ColorPicker, Calendar,
    Area, Bar, ColorMapping, GeoMaps, UserProfile, Line, Pie, Stacked, HighestRiskExposures, RecentPOAMs, Indicators, IncidentFactors } from './pages'
 import './App.css';
 
@@ -44,14 +42,14 @@ const App = () => {
               <Route path="/" element={<Highlights />} />
               <Route path="/highlights" element={<Highlights />} />
               <Route path="/highest-risk-exposures" element={<HighestRiskExposures />} />
-              <Route path="/recent-poams" element={<RecentPOAMs />} />
+              <Route path="/recent-POA&Ms" element={<RecentPOAMs />} />
               <Route path="/incident-factors" element={<IncidentFactors />} />
 
               {/* Pages */}
               <Route path="/actions" element={<Actions />} />
               <Route path="/indicators" element={<Indicators />} />
-              <Route path="/employees" element={<Employees />} />
-              <Route path="/users" element={<Users />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/manage-team" element={<ManageTeam />} />
               <Route path="/user-profile" element={<UserProfile />} />
 
               {/* Apps */}
