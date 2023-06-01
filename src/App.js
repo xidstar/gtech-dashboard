@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import {Navbar, Footer, Sidebar, ThemeSettings, Notification, Profile} from './components';
+import {Navbar, Sidebar, ThemeSettings, Notification, Profile} from './components';
 import {Highlights, Editor, Team, Kanban, Actions, ManageTeam, ColorPicker, Calendar,
    Area, Bar, ColorMapping, GeoMaps, UserProfile, Line, Pie, Stacked, HighestRiskExposures, RecentPOAMs, Indicators, IncidentFactors } from './pages'
 import './App.css';
@@ -9,7 +9,7 @@ import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
-  const {activeMenu, themeSettings, setThemeSettings, notification, setNotification, currentMode, profile, setProfile} = useStateContext();
+  const {activeMenu, themeSettings, notification, currentMode, profile} = useStateContext();
 
   return (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>

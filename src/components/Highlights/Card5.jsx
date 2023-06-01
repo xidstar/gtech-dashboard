@@ -6,7 +6,7 @@ import BarChart from './BarChart';
 const Card5 = () => {
     <CardTemplate />  
 
-    const [applicationData, setApplicationData] = useState({
+    const [applicationData] = useState({
       labels: ApplicationData.map((data) => data.application),
       datasets: [
         {

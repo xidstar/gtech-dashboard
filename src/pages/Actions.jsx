@@ -119,7 +119,7 @@ const Actions = () => {
                 <td className='approvers relative'>
                   {GridApproversImage()}
                   {row.status === 'approved' ? <FaCheckCircle className='fill-green-600 text-lg absolute right-5 top-5 approver-icon' /> : null}
-                  {row.status === 'rejected' ? <BsFlagFill className='fill-red-500 text-lg absolute right-5 top-5 approver-icon' /> : null}
+                  {row.status === 'rejected' ? <BsFlagFill className='fill-red-600 text-lg absolute right-5 top-5 approver-icon' /> : null}
                 </td>
                 <td>
                   <button  

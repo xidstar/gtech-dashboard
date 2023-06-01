@@ -11,7 +11,7 @@ const Card3 = () => {
 
     <CardTemplate />  
 
-    const [webData, setWebData] = useState({
+    const [webData] = useState({
       labels: WebData.map((data) => data.application),
       datasets: [
         {

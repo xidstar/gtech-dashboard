@@ -1,5 +1,5 @@
 import React from 'react'
-import { employeesData, employeesGrid } from '../data/dummy';
+import { employeesData } from '../data/dummy';
 import { Header } from '../components';
 import Area from './Charts/Area';
 import GeoMaps from './GeoMaps';
@@ -9,8 +9,6 @@ import {HiOutlineArrowsExpand} from 'react-icons/hi'
 
 import Card3 from '../components/Highlights/Card3';
 import Card5 from '../components/Highlights/Card5';
-
-
 
 const UserProfile = () => {
     function btnClick() {
