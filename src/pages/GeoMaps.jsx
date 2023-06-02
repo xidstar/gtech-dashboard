@@ -71,11 +71,11 @@ const GeoMaps = () => {
         </Popup>
       </Marker>
       {
-        statesData.features.map((state) => {
+        statesData.features.map((state, index) => {
           const coordinates = state.geometry.coordinates[0].map((item) => [item[1], item[0]]);
 
           return (
-            <Polygon 
+            <Polygon  key={index}
               pathOptions={{
                 fillColor: '#fd8d3c',
                 fillOpacity: 0.7,
