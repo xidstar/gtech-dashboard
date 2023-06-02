@@ -97,9 +97,6 @@ const Actions = () => {
       <Header category="Page" title="Actions" />
 
       <div className='actions-table'>
-        <div>
-          
-        </div>
         <table className='dark:bg-secondary-dark-bg w-full border-2 border-slate-200'>
           <thead>
             <tr className='dark:text-slate-200'>
