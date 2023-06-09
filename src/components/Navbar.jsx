@@ -7,6 +7,8 @@ import avatar from '../data/avatar5.png'
 import {Cart, Chat, Notification, UserProfile, Profile} from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 
+import { summaryData } from '../data/dummy';
+
 import { AutoCompleteComponent } from '@syncfusion/ej2-react-dropdowns';
 
 const NavButton = ({title, customFunc, icon, color, dotColor}) => (
@@ -26,17 +28,7 @@ const Navbar = () => {
      handleClick, screenSize, setScreenSize, themeSettings,
       setThemeSettings, notification, setNotification, currentColor, currentMode, profile, setProfile} = useStateContext();
 
-  const pageData = [
-    { Id: 'Page1', Page: 'Highlights' },
-    { Id: 'Page2', Page: 'Actions' },
-    { Id: 'Page3', Page: 'Customers' },
-    { Id: 'Page4', Page: 'Users' },
-    { Id: 'Page5', Page: 'Calendar' },
-    { Id: 'Page6', Page: 'Kanban' },
-    { Id: 'Page7', Page: 'Charts' },
-    { Id: 'Page8', Page: 'Maps' }
-  ];
-  const fields = { value: 'Page' };
+  const fields = { value: "title" };
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -66,7 +58,7 @@ const Navbar = () => {
         <div className="search w-4/5">
           <AutoCompleteComponent 
             id="atcelement"   
-            dataSource={pageData} 
+            dataSource={summaryData} 
             fields={fields} 
             placeholder="Search..." 
             autofill={true}

@@ -2,6 +2,7 @@ import React from 'react'
 import {BiRadioCircle} from 'react-icons/bi';
 import { summaryData } from '../../data/dummy';
 import CardTemplate from './CardTemplate';
+import { Link } from 'react-router-dom';
 
 const Card1 = () => {
   const colors = ['#8be78b', '#ff5c8e','#dd8adb', '#03c9d7', '#fb9678'];
@@ -16,8 +17,7 @@ const Card1 = () => {
                 <div className='flex justify-between p-4 border-b-1'>
                     <div className="text flex items-center text-left w-full">
                         <BiRadioCircle />
-                        {/* <p className="text-bold pl-2">{item.title}</p> */}
-                        <a href={`/${item.title}`} className='capitalize w-full pl-2'>{item.title}</a>
+                        <Link to={`/${item.title}`} className='capitalize w-full pl-2'>{item.title}</Link>
                     </div>
                     <div className="text">
                         <p className={`num rounded-xl p-1 pl-2 pr-2 text-sm`}

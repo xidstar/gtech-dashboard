@@ -9,11 +9,9 @@ import {HiOutlineArrowsExpand} from 'react-icons/hi'
 
 import Card3 from '../components/Highlights/Card3';
 import Card5 from '../components/Highlights/Card5';
+import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
-    function btnClick() {
-        window.location.href="/geo-maps";
-    } 
 
   return (
     <div className='user-profile mt-32 lg:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
@@ -73,15 +71,19 @@ const UserProfile = () => {
                         </div>
 
                         <div className="border-t-1 text-center mb-3 3xl:mb-0 ">
-                            <p className='pt-5'>Score:</p>
-                            <button type='button' className='bg-red-700 p-3 pr-5pl-5 w-[100px] text-white hover:bg-red-600
-                            hover:cursor-pointer'>{Score}</button>
+                            <p className='py-5'>Score:</p>
+
+                            <Link to="/highest-risk-exposures" className='bg-red-700 p-3 px-10 text-white hover:bg-red-600 hover:cursor-pointer'>
+                                {Score}
+                            </Link>
                         </div>
                         
                         <div className='chart h-3/6 overflow-hidden rounded-3xl drop-shadow-2xl relative'>
                             
                             <GeoMaps style={{height: "400px !important"}} className='z-0' />
-                            <button className='btn-expand absolute top-5 right-5 text-black text-3xl hover:text-4xl' onClick={btnClick}><HiOutlineArrowsExpand /></button>
+                            <Link to="/geo-maps" className='btn-expand absolute top-5 right-5 text-black text-3xl hover:text-4xl'>
+                                <HiOutlineArrowsExpand />
+                            </Link>
                         </div>
                         
                     </div>
