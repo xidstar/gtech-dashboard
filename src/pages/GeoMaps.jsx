@@ -3,7 +3,9 @@ import { statesData } from '../data/dummy';
 import {MapContainer, TileLayer, Polygon, Marker, Popup} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
-import {Icon} from 'leaflet'
+import {Icon} from 'leaflet';
+import { Link } from 'react-router-dom';
+import {HiOutlineArrowsExpand} from 'react-icons/hi'
 
 const GeoMaps = () => {
 
@@ -24,16 +26,22 @@ const GeoMaps = () => {
     //     referrerpolicy="no-referrer-when-downgrade">
 
     //   </iframe>
+    <>
+      
 
     <MapContainer
       center={center}
       zoom={10}
       style={{border:0, width: "100%", height: "100vh"}} 
     >
+      <Link to="/user-profile" className='btn-expand absolute top-10 right-10 text-black text-3xl'>
+          <HiOutlineArrowsExpand />
+      </Link>
       <TileLayer
         url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=9VSwUUuYtWf0fNEsgX5Q"
         attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
       />
+      
       <Marker position={position1} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
         <Popup>
           Location: Graham Technologies.
@@ -115,7 +123,7 @@ const GeoMaps = () => {
         })
       }
     </MapContainer>
-    
+    </>
   )
 }
 

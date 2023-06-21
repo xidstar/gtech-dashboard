@@ -25,7 +25,7 @@ const Notification = () => {
         </div>
         <div className="flex-col border-t-1 border-color dark:border-slate-200 p-4 ml-4 mr-4">
             <p className='font-semibold text-lg flex items-center'>
-              Chats 
+              Indicators 
               <span 
                 className=' flex items-center justify-center bg-orange-400 w-7 h-7 ml-2 rounded-full text-white text-sm'>
                   {chatData.length}+

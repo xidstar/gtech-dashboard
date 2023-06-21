@@ -81,7 +81,7 @@ const UserProfile = () => {
                         <div className='chart h-3/6 overflow-hidden rounded-3xl drop-shadow-2xl relative'>
                             
                             <GeoMaps style={{height: "400px !important"}} className='z-0' />
-                            <Link to="/geo-maps" className='btn-expand absolute top-5 right-5 text-black text-3xl hover:text-4xl'>
+                            <Link to="/geo-maps" className='btn-expand absolute top-10 right-10 text-black text-3xl'>
                                 <HiOutlineArrowsExpand />
                             </Link>
                         </div>
