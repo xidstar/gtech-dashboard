@@ -13,7 +13,9 @@ const HighestRiskExposures = () => {
       <Header category="Dashboard" title="Highest Risk Exposures" />
       
       
-      <table className='risk-table dark:bg-secondary-dark-bg w-full border-1 border-slate-200'>
+      <table className='risk-table dark:bg-secondary-dark-bg !border-solid border-1 border-slate-200 e-control 
+        e-grid e-lib e-gridhover e-device e-responsive e-default e-droppable e-tooltip e-keyboard
+        overflow-y-scroll md:!table w-full'>
           <thead>
             <tr className='dark:text-slate-200'>
               <th className=' bg-gray-100 dark:bg-slate-700'>User Name</th>
@@ -56,6 +58,8 @@ const HighestRiskExposures = () => {
           </tbody>
           
         </table>
+      
+      
     </div>
   )
 }

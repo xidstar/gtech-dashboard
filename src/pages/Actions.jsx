@@ -97,7 +97,7 @@ const Actions = () => {
       <Header category="Page" title="Actions" />
 
       <div className='actions-table'>
-        <table className='dark:bg-secondary-dark-bg w-full border-2 border-slate-200'>
+        <table className='dark:bg-secondary-dark-bg w-full !border-solid border-2 border-slate-200 e-grid md:!table'>
           <thead>
             <tr className='dark:text-slate-200'>
               <th className=' bg-gray-100 dark:bg-slate-700'>Title</th>

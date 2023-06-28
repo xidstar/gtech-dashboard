@@ -70,7 +70,7 @@ const UserProfile = () => {
                             </div>
                         </div>
 
-                        <div className="border-t-1 text-center mb-3 3xl:mb-0 ">
+                        <div className="border-t-1 text-center mb-5 xl:mb-3 3xl:mb-0 ">
                             <p className='py-5'>Score:</p>
 
                             <Link to="/highest-risk-exposures" className='bg-red-700 p-3 px-10 text-white hover:bg-red-600 hover:cursor-pointer'>
@@ -81,7 +81,7 @@ const UserProfile = () => {
                         <div className='chart h-3/6 overflow-hidden rounded-3xl drop-shadow-2xl relative'>
                             
                             <GeoMaps style={{height: "400px !important"}} className='z-0' />
-                            <Link to="/geo-maps" className='btn-expand absolute top-10 right-10 text-black text-3xl'>
+                            <Link to="/geo-maps" className='btn-expand absolute top-10 right-10 text-cyan-600 text-3xl'>
                                 <HiOutlineArrowsExpand />
                             </Link>
                         </div>

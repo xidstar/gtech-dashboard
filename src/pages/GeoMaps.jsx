@@ -34,7 +34,7 @@ const GeoMaps = () => {
       zoom={10}
       style={{border:0, width: "100%", height: "100vh"}} 
     >
-      <Link to="/user-profile" className='btn-expand absolute top-10 right-10 text-black text-3xl'>
+      <Link to="/user-profile" className='btn-expand absolute top-10 right-10 text-cyan-600 text-3xl'>
           <HiOutlineArrowsExpand />
       </Link>
       <TileLayer
