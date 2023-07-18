@@ -14,18 +14,10 @@ const GeoMaps = () => {
   const position2 = [38.9041741, -77.0369584]
   const position3 = [39.2877389, -76.6123732]
   const position4 = [51.5066479,-0.1433187]
+  const position5 = [34.052235,-118.243683]
   
   return (
-    // <iframe 
-    //     src="https://api.maptiler.com/maps/basic-v2/?key=9VSwUUuYtWf0fNEsgX5Q#1.0/0.00000/0.00000" 
-    //     width="600" 
-    //     height="450" 
-    //     style={{border:0, width: "100%", height: "100vh"}} 
-    //     allowfullscreen="true" 
-    //     loading="lazy" 
-    //     referrerpolicy="no-referrer-when-downgrade">
-
-    //   </iframe>
+    
     <>
       
 
@@ -78,6 +70,15 @@ const GeoMaps = () => {
           Time: 23:00 EST
         </Popup>
       </Marker>
+      <Marker position={position5} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
+        <Popup>
+          Location: Los Angeles, California.
+          <br />
+          Date: 07/05/2023
+          <br />
+          Time: 13:30 EST
+        </Popup>
+      </Marker>
       {
         statesData.features.map((state, index) => {
           const coordinates = state.geometry.coordinates[0].map((item) => [item[1], item[0]]);
@@ -115,7 +116,14 @@ const GeoMaps = () => {
                   })
                 },
                 click: (e) => {
-
+                  const layer = e.target;
+                  layer.setStyle({
+                    fillOpacity: 0.7,
+                    weight: 2,
+                    dashArray: "3",
+                    color: "white",
+                    fillColor: "red"
+                  })
                 },
               }}
             />
