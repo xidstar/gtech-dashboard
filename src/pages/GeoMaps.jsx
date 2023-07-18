@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { statesData } from '../data/dummy';
 import {MapContainer, TileLayer, Polygon, Marker, Popup} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
