@@ -91,55 +91,78 @@ const Actions = () => {
   };
 
   return (
-   
-    <div className='actions-table mt-32 md:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
-     w-11/12 mr-auto ml-auto shadow-xl'>
+    <div
+      className="actions-table mt-32 md:mt-12 p-10 bg-white rounded-3xl dark:bg-secondary-dark-bg
+     w-11/12 mr-auto ml-auto shadow-xl"
+    >
       <Header category="Page" title="Actions" />
 
-      <div className='actions-table'>
-        <table className='dark:bg-secondary-dark-bg w-full !border-solid border-2 border-slate-200 e-grid md:!table'>
+      <div className="actions-table">
+        <table className="dark:bg-secondary-dark-bg w-full !border-solid border-2 border-slate-200 e-grid md:!table">
           <thead>
-            <tr className='dark:text-slate-200'>
-              <th className=' bg-gray-100 dark:bg-slate-700'>Title</th>
-              <th className=' bg-gray-100 dark:bg-slate-700'>Status</th>
-              <th className=' bg-gray-100 dark:bg-slate-700 approver-title'>Approvers</th>
-              <th className=' bg-gray-100 dark:bg-slate-700'>Action</th>
+            <tr className="dark:text-slate-200">
+              <th className=" bg-gray-100 dark:bg-slate-700">Title</th>
+              <th className=" bg-gray-100 dark:bg-slate-700">Status</th>
+              <th className=" bg-gray-100 dark:bg-slate-700 approver-title">
+                Approvers
+              </th>
+              <th className=" bg-gray-100 dark:bg-slate-700">Action</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.id} className='bg-white dark:bg-slate-600'>
+              <tr key={row.id} className="bg-white dark:bg-slate-600">
                 <td>{row.title}</td>
                 <td>
-                  <p className={`rounded-xl p-1 max-w-[120px] mx-auto !text-slate-200 ${row.status === "approved" ? 'bg-green-600' : null} ${row.status === "rejected" ? 'bg-red-500' : null}`}>{row.status}</p>
+                  <p
+                    className={`rounded-xl p-1 max-w-[120px] mx-auto dark:text-slate-200 text-slate-800 ${
+                      row.status === "approved" ? "bg-green-600" : null
+                    } ${row.status === "rejected" ? "bg-red-500" : null}`}
+                  >
+                    {row.status}
+                  </p>
                 </td>
-                <td className='approvers relative'>
+                <td className="approvers relative">
                   {GridApproversImage()}
-                  {row.status === 'approved' ? <FaCheckCircle className='fill-green-600 text-lg absolute right-5 top-5 approver-icon' /> : null}
-                  {row.status === 'rejected' ? <BsFlagFill className='fill-red-600 text-lg absolute right-5 top-5 approver-icon' /> : null}
+                  {row.status === "approved" ? (
+                    <FaCheckCircle className="fill-green-600 text-lg absolute right-5 top-5 approver-icon" />
+                  ) : null}
+                  {row.status === "rejected" ? (
+                    <BsFlagFill className="fill-red-600 text-lg absolute right-5 top-5 approver-icon" />
+                  ) : null}
                 </td>
                 <td>
-                  <button  
-                    className={` ${row.status === "rejected" ? 'bg-red-500 text-slate-200' : "bg-slate-200 text-black"}`}
-                    style={{ 
-                      margin: "5px", 
-                      padding: "7px 20px", 
-                      borderRadius: "5px", 
-                      width: "120px", 
-                    }} 
-                    onClick={() => handleRejectClick(row.id)}>
-                      {row.actionReject}
-                  </button>
-                  <button 
-                    className={` ${row.status === "approved" ? 'bg-green-600 text-slate-200' : "bg-green-300 text-black"}`}
-                    style={{  
+                  <button
+                    className={` ${
+                      row.status === "rejected"
+                        ? "bg-red-500 text-slate-200"
+                        : "bg-slate-200 text-black"
+                    }`}
+                    style={{
                       margin: "5px",
-                      padding: "7px 20px", 
-                      borderRadius: "5px", 
-                      width: "120px", 
-                    }} 
-                    onClick={() => handleApproveClick(row.id)}>
-                      {row.actionApprove}
+                      padding: "7px 20px",
+                      borderRadius: "5px",
+                      width: "120px",
+                    }}
+                    onClick={() => handleRejectClick(row.id)}
+                  >
+                    {row.actionReject}
+                  </button>
+                  <button
+                    className={` ${
+                      row.status === "approved"
+                        ? "bg-green-600 text-slate-200"
+                        : "bg-green-300 text-black"
+                    }`}
+                    style={{
+                      margin: "5px",
+                      padding: "7px 20px",
+                      borderRadius: "5px",
+                      width: "120px",
+                    }}
+                    onClick={() => handleApproveClick(row.id)}
+                  >
+                    {row.actionApprove}
                   </button>
                 </td>
               </tr>
@@ -148,41 +171,59 @@ const Actions = () => {
         </table>
       </div>
 
-      
-
       <div className="chat w-full rounded-xl dark:text-slate-200 mt-5 p-5 bg-slate-200 dark:bg-slate-700">
         <div className="top flex mb-3 text-slate-400">
-          <p className=''>George Michael</p>
-          <p className='pl-5'>11:24:19 AM</p>
-          <p className='pl-5'>Changed status to - <span className="text-red-500 font-bold">Rejected</span></p>
+          <p className="">George Michael</p>
+          <p className="pl-5">11:24:19 AM</p>
+          <p className="pl-5">
+            Changed status to -{" "}
+            <span className="text-red-500 font-bold">Rejected</span>
+          </p>
         </div>
         <div className="message dark:text-slate-200">
-          <p>Improper Input Validation vulnerability in flask that can result in Large amount of memory usage
-            possibly leading to denial of service. This attack appears to be exploitable via Attacker provides
-             JSON data in incorrect encoding. </p>
-             {messages.map((message) => (
-                  <div key={message.id} className="message flex flex-col dark:text-slate-200 mt-5">
-                    <div className="info pb-2 flex text-slate-400">
-                      <p className=''>Chris Stevenson</p>
-                      <p className='mr-0 pl-5 text-right'>{message.time}</p>
-                    </div>
-                    <p className='flex items-center text-left'>{message.content}</p>
-                  </div>
-              ))}
+          <p>
+            Improper Input Validation vulnerability in flask that can result in
+            Large amount of memory usage possibly leading to denial of service.
+            This attack appears to be exploitable via Attacker provides JSON
+            data in incorrect encoding.{" "}
+          </p>
+          {messages.map((message) => (
+            <div
+              key={message.id}
+              className="message flex flex-col dark:text-slate-200 mt-5"
+            >
+              <div className="info pb-2 flex text-slate-400">
+                <p className="">Chris Stevenson</p>
+                <p className="mr-0 pl-5 text-right">{message.time}</p>
+              </div>
+              <p className="flex items-center text-left">{message.content}</p>
+            </div>
+          ))}
         </div>
         <div className="chat-input pt-5 w-full flex md:w-[50%]">
           <input
-              type="text"
-              placeholder="Type your message..."
-              value={input}
-              onChange={handleInputChange}
-              style={{width: "-webkit-fill-available", borderRadius: "10px", padding: "10px 20px", color: "#ccc"}}
+            type="text"
+            placeholder="Type your message..."
+            value={input}
+            onChange={handleInputChange}
+            style={{
+              width: "-webkit-fill-available",
+              borderRadius: "10px",
+              padding: "10px 20px",
+              color: "#ccc",
+            }}
           />
-          <button className='ml-5 text-4xl rounded-md font-bold' style={{backgroundColor: "transparent"}}  onClick={handleSendMessage}><BsFillChatDotsFill style={{fill: `${currentColor}`}} /></button>
+          <button
+            className="ml-5 text-4xl rounded-md font-bold"
+            style={{ backgroundColor: "transparent" }}
+            onClick={handleSendMessage}
+          >
+            <BsFillChatDotsFill style={{ fill: `${currentColor}` }} />
+          </button>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Actions;
